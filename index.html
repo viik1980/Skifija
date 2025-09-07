@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skifija — уютный хостел для строителей и дальнобойщиков</title>
+  <meta name="description" content="Хостел Skifija: чисто, тихо, по‑домашнему. Без пьянок. Парковка для фур, удобные кровати, мощный Wi‑Fi, горячий душ. Заботливые хозяева." />
+  <meta property="og:title" content="Skifija — уютный хостел без шума и пьянок" />
+  <meta property="og:description" content="Тихий отдых после дороги и смены. Парковка для фур, кухня, прачка, Wi‑Fi. Звоните — разместим с комфортом." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ВАШ-АККАУНТ.github.io/ВАШ-РЕПО/" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1200&auto=format&fit=crop" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-9PufbA5i4h6ZbWv0k7rH9b9+K1oG3Q2m+2jgXWj5S8p9s9zCwC6m7k3Jg2b7Xf7fV9Jb3h8n8jz9l9zQ9v9Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E🛏️%3C/text%3E%3C/svg%3E">
+  <style>
+    :root{
+      --bg:#fafafa;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#64748b;
+      --primary:#00b894; /* мятный акцент */
+      --accent:#ffd166;  /* мягкий лимонный */
+      --sky:#38bdf8;     /* небесно‑голубой */
+      --ring: rgba(56,189,248,.45);
+      --shadow: 0 10px 30px rgba(2, 6, 23, .08);
+      --radius:16px;
+      --container: 1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+    .btn{display:inline-flex;gap:10px;align-items:center;padding:14px 20px;border-radius:12px;font-weight:700;transition:.2s;box-shadow:var(--shadow)}
+    .btn-primary{background:linear-gradient(135deg,var(--primary),#0fd4ae);color:#fff}
+    .btn-primary:hover{transform:translateY(-1px);filter:brightness(1.02)}
+    .btn-outline{border:2px solid var(--primary);color:var(--primary);background:#fff}
+    .btn-outline:hover{background:rgba(0,184,148,.06)}
+    .badge{display:inline-flex;gap:8px;align-items:center;background:#fff;border:1px dashed var(--accent);padding:6px 10px;border-radius:999px;color:#8a6d1d;font-weight:600}
+    header{position:sticky;top:0;z-index:50;background:rgba(250,250,250,.9);backdrop-filter:blur(10px);border-bottom:1px solid #eef2ff}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .logo{display:flex;gap:12px;align-items:center;font-weight:800;font-family:Nunito,Inter,sans-serif}
+    .logo i{color:var(--primary)}
+    .nav-links{display:flex;gap:20px;align-items:center}
+    .nav-links a{color:var(--muted);font-weight:600}
+    .nav-links a:hover{color:var(--text)}
+    .hero{position:relative;overflow:hidden}
+    .hero-inner{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center;padding:48px 0}
+    .blob1,.blob2{position:absolute;inset:auto auto 0 50%;width:800px;height:800px;opacity:.25;filter:blur(80px);z-index:-1;transform:translateX(-50%)}
+    .blob1{background:radial-gradient(circle at 30% 30%, var(--accent), transparent 60%), radial-gradient(circle at 70% 40%, var(--sky), transparent 60%)}
+    .blob2{background:radial-gradient(circle at 40% 60%, var(--primary), transparent 60%)}
+    h1{font-size:40px;line-height:1.15;margin:14px 0 10px;font-weight:900;letter-spacing:-.02em}
+    .lead{color:var(--muted);font-size:18px}
+    .hero-card{background:var(--card);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);display:grid;gap:14px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .feature{background:var(--card);border-radius:14px;padding:16px;border:1px solid #eef2ff;box-shadow:0 6px 18px rgba(2,6,23,.06);display:flex;gap:12px}
+    .feature i{color:var(--primary);font-size:22px;margin-top:2px}
+    .section{padding:60px 0}
+    .section h2{font-size:32px;margin:0 0 14px}
+    .muted{color:var(--muted)}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid #eef2ff}
+    .rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .room{padding:16px}
+    .price{font-weight:900;font-size:22px;color:#0b8f74}
+    .chip{display:inline-block;background:#f1f5f9;color:#0f172a;border-radius:999px;padding:6px 10px;font-size:13px;font-weight:700}
+    .list{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+    .list li{display:flex;gap:10px;align-items:flex-start}
+    .list i{color:var(--primary);margin-top:4px}
+    .cta{display:flex;flex-wrap:wrap;gap:12px}
+    .rules{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .review{padding:16px}
+    .gallery{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px}
+    .gallery img{border-radius:12px;height:100%;object-fit:cover}
+    .contact{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+    .contact iframe{border:0;border-radius:16px;min-height:340px}
+    footer{padding:28px 0;border-top:1px solid #eef2ff;color:var(--muted);font-size:14px}
+    .mobile-nav{display:none}
+    @media (max-width:1000px){
+      .hero-inner{grid-template-columns:1fr}
+      .grid-3,.rooms,.reviews,.contact,.rules{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr 1fr}
+      .nav-links{display:none}
+      .mobile-nav{display:flex;gap:10px}
+    }
+    /* Focus styles */
+    :focus-visible{outline:3px solid var(--ring);outline-offset:2px;border-radius:8px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo">
+        <i class="fa-solid fa-bed"></i>
+        <span>Skifija</span>
+        <span class="chip" aria-label="тихо и по-домашнему">без пьянок</span>
+      </a>
+      <nav class="nav-links" aria-label="Главная навигация">
+        <a href="#why">Почему мы</a>
+        <a href="#rooms">Номера и цены</a>
+        <a href="#rules">Правила</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <div class="mobile-nav">
+        <a class="btn btn-outline" href="tel:+7XXXXXXXXXX"><i class="fa-solid fa-phone"></i><span>Позвонить</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="blob1"></div><div class="blob2"></div>
+      <div class="container hero-inner">
+        <div>
+          <span class="badge"><i class="fa-solid fa-mug-hot"></i> Тепло, тихо и по‑домашнему</span>
+          <h1>Skifija — отдых как дома.
+            Для тех, кто работает, а не шумит</h1>
+          <p class="lead">Строители, дальнобойщики — добро пожаловать. У нас кровати мягкие, как облака, правила твердые, как бетон: тишина, чистота и никакого алкоголя.</p>
+          <div class="cta" style="margin-top:14px">
+            <a class="btn btn-primary" href="tel:+7XXXXXXXXXX"><i class="fa-solid fa-phone"></i> Звонок: +7 XXX XXX‑XX‑XX</a>
+            <a class="btn btn-outline" href="https://wa.me/7XXXXXXXXXX" target="_blank" rel="noopener">
+              <i class="fa-brands fa-whatsapp"></i> WhatsApp — написать
+            </a>
+            <a class="btn btn-outline" href="https://t.me/ВАШ_TELEGRAM" target="_blank" rel="noopener">
+              <i class="fa-brands fa-telegram"></i> Telegram
+            </a>
+          </div>
+          <p class="muted" style="margin-top:8px">Ранний заезд, безнал по запросу, документы для отчета.</p>
+        </div>
+        <div class="hero-card">
+          <div class="grid-3">
+            <div class="feature"><i class="fa-solid fa-truck"></i><div><strong>Парковка для фур</strong><div class="muted">Места под длинномеры рядом</div></div></div>
+            <div class="feature"><i class="fa-solid fa-shower"></i><div><strong>Горячий душ</strong><div class="muted">После дороги — как заново родиться</div></div></div>
+            <div class="feature"><i class="fa-solid fa-wifi"></i><div><strong>Wi‑Fi мощнее кофе</strong><div class="muted">Тянет видео и навигацию</div></div></div>
+            <div class="feature"><i class="fa-solid fa-utensils"></i><div><strong>Кухня</strong><div class="muted">Микроволновка, плита, чай/кофе</div></div></div>
+            <div class="feature"><i class="fa-solid fa-soap"></i><div><strong>Прачечная</strong><div class="muted">Стирка и сушка без хлопот</div></div></div>
+            <div class="feature"><i class="fa-solid fa-moon"></i><div><strong>Тишина — наше всё</strong><div class="muted">Спите крепко, завтра снова в путь</div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" class="section">
+      <div class="container">
+        <h2>Почему Skifija</h2>
+        <p class="muted">Мы — про комфорт без лишнего шума. Хозяева заботливые, как добрые соседи: подскажем, где пообедать, поможем с заездом и документами.</p>
+        <div class="grid-3" style="margin-top:16px">
+          <div class="card" style="padding:16px">
+            <h3><i class="fa-solid fa-helmet-safety" style="color:var(--primary)"></i> Для строителей</h3>
+            <ul class="list">
+              <li><i class="fa-solid fa-check"></i><span>Ранний/поздний заезд по договоренности</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Место для инструментов, сушка формы</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Скидки при длительном проживании</span></li>
+            </ul>
+          </div>
+          <div class="card" style="padding:16px">
+            <h3><i class="fa-solid fa-road" style="color:var(--primary)"></i> Для дальнобойщиков</h3>
+            <ul class="list">
+              <li><i class="fa-solid fa-check"></i><span>Парковка для грузовых рядом с хостелом</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Душ, кухня, отдых без лишних разговоров</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Будильник по запросу — не проспите рейс</span></li>
+            </ul>
+          </div>
+          <div class="card" style="padding:16px">
+            <h3><i class="fa-solid fa-sparkles" style="color:var(--primary)"></i> Чисто и по‑домашнему</h3>
+            <ul class="list">
+              <li><i class="fa-solid fa-check"></i><span>Ежедневная уборка общих зон</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Свежие постельные и полотенца</span></li>
+              <li><i class="fa-solid fa-check"></i><span>На кухне — чай, кофе, микроволновка</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="rooms" class="section" aria-labelledby="rooms-title" style="background:linear-gradient(180deg,#ffffff, #f7fbff)">
+      <div class="container">
+        <h2 id="rooms-title">Номера и цены</h2>
+        <p class="muted">Цены — честные, без сюрпризов. Чем дольше живёте, тем выгоднее.</p>
+        <div class="rooms">
+          <div class="card room">
+            <img src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d95?q=80&w=1200&auto=format&fit=crop" alt="Комната на 4 места">
+            <h3>Общий номер на 4</h3>
+            <p class="muted">Идеален для бригад. Индивидуальные лампы и розетки.</p>
+            <div class="price">от 900 ₽/сутки</div>
+            <div class="cta" style="margin-top:10px">
+              <a class="btn btn-primary" href="tel:+7XXXXXXXXXX"><i class="fa-solid fa-phone"></i> Забронировать</a>
+              <a class="btn btn-outline" href="https://wa.me/7XXXXXXXXXX"><i class="fa-brands fa-whatsapp"></i> Написать</a>
+            </div>
+          </div>
+          <div class="card room">
+            <img src="https://images.unsplash.com/photo-1595526114035-5f3be9b1d1ee?q=80&w=1200&auto=format&fit=crop" alt="Комната на 6 мест">
+            <h3>Общий номер на 6</h3>
+            <p class="muted">Для больших команд. Прочные двухъярусные кровати.</p>
+            <div class="price">от 800 ₽/сутки</div>
+            <div class="cta" style="margin-top:10px">
+              <a class="btn btn-primary" href="tel:+7XXXXXXXXXX"><i class="fa-solid fa-phone"></i> Забронировать</a>
+              <a class="btn btn-outline" href="https://wa.me/7XXXXXXXXXX"><i class="fa-brands fa-whatsapp"></i> Написать</a>
+            </div>
+          </div>
+          <div class="card room">
+            <img src="https://images.unsplash.com/photo-1560448075-bb4caa6c4f63?q=80&w=1200&auto=format&fit=crop" alt="Отдельная комната">
+            <h3>Отдельная комната</h3>
+            <p class="muted">Для мастеров и водителей, кому нужен личный простор.</p>
+            <div class="price">от 1500 ₽/сутки</div>
+            <div class="cta" style="margin-top:10px">
+              <a class="btn btn-primary" href="tel:+7XXXXXXXXXX"><i class="fa-solid fa-phone"></i> Забронировать</a>
+              <a class="btn btn-outline" href="https://wa.me/7XXXXXXXXXX"><i class="fa-brands fa-whatsapp"></i> Написать</a>
+            </div>
+          </div>
+        </div>
+        <p class="muted" style="margin-top:10px">Долгосрочное проживание: скидки. Безналичный расчёт и закрывающие документы — по запросу.</p>
+      </div>
+    </section>
+
+    <section id="rules" class="section">
+      <div class="container">
+        <h2>Честные правила — крепкий сон</h2>
+        <div class="rules">
+          <div class="card" style="padding:16px">
+            <h3><i class="fa-solid fa-ban" style="color:#ef4444"></i> Без пьянок и шумных компаний</h3>
+            <p class="muted">Мы — про отдых и порядок. Уважайте соседей: тишина — с 22:00 до 8:00.</p>
+            <ul class="list">
+              <li><i class="fa-solid fa-check"></i><span>Алкоголь запрещён на всей территории</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Курение — только в специально отведенном месте</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Гости только по согласованию с администратором</span></li>
+            </ul>
+          </div>
+          <div class="card" style="padding:16px">
+            <h3><i class="fa-solid fa-hands-bubbles" style="color:var(--primary)"></i> Чистота и забота</h3>
+            <p class="muted">Хозяева — добрые и внимательные. Всегда рядом и помогут, если что.</p>
+            <ul class="list">
+              <li><i class="fa-solid fa-check"></i><span>Регулярная уборка общих зон</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Постель и полотенца — включены</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Бережное отношение к имуществу приветствуется</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Отзывы</h2>
+        <div class="reviews">
+          <div class="card review">
+            <p>“После рейса — то, что нужно. Тихо, чисто, душ горячий. Парковка для фуры рядом, хозяева — душевные.”</p>
+            <div class="muted">Игорь, дальнобойщик</div>
+          </div>
+          <div class="card review">
+            <p>“Бригаду разместили быстро. Выдали полотенца, на кухне всё есть. Цены человеческие.”</p>
+            <div class="muted">Сергей, прораб</div>
+          </div>
+          <div class="card review">
+            <p>“Спится как дома. Без шумных соседей — редкость сейчас. Вернусь еще.”</p>
+            <div class="muted">Анна, инженер‑проектировщик</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="gallery-title" style="padding-top:0">
+      <div class="container">
+        <h2 id="gallery-title">Как у нас внутри</h2>
+        <p class="muted">Ниже — примерные фото. Замените на свои, чтобы показать реальный уют.</p>
+        <div class="gallery">
+          <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=1200&auto=format&fit=crop" alt="Общая зона">
+          <img src="https://images.unsplash.com/photo-1559599101-f09722fb4948?q=80&w=1200&auto=format&fit=crop" alt="Кровать">
+          <img src="https://images.unsplash.com/photo-1505692952047-1a78307da8ec?q=80&w=1200&auto=format&fit=crop" alt="Кухня">
+        </div>
+      </div>
+    </section>
+
+    <section id="contacts" class="section">
+      <div class="container contact">
+        <div class="card" style="padding:16px">
+          <h2>Контакты и заезд</h2>
+          <p class="muted">Звоните — подскажем по парковке, заезду и свободным местам.</p>
+          <ul class="list">
+            <li><i class="fa-solid fa-location-dot"></i><span><strong>Адрес:</strong> г. Ваш город, ул. Ваша, д. 1 (замените на реальный)</span></li>
+            <li><i class="fa-solid fa-phone"></i><span><strong>Телефон:</strong> <a href="tel:+7XXXXXXXXXX">+7 XXX XXX‑XX‑XX</a></span></li>
+            <li><i class="fa-brands fa-whatsapp"></i><span><strong>WhatsApp:</strong> <a href="https://wa.me/7XXXXXXXXXX" target="_blank" rel="noopener">написать</a></span></li>
+            <li><i class="fa-brands fa-telegram"></i><span><strong>Telegram:</strong> <a href="https://t.me/ВАШ_TELEGRAM" target="_blank" rel="noopener">@ВАШ_TELEGRAM</a></span></li>
+            <li><i class="fa-solid fa-clock"></i><span><strong>Часы:</strong> 24/7, заселение по договоренности</span></li>
+          </ul>
+          <div class="cta" style="margin-top:14px">
+            <a class="btn btn-primary" href="tel:+7XXXXXXXXXX"><i class="fa-solid fa-phone"></i> Позвонить</a>
+            <a class="btn btn-outline" href="https://wa.me/7XXXXXXXXXX"><i class="fa-brands fa-whatsapp"></i> Написать</a>
+          </div>
+        </div>
+        <div>
+          <!-- Замените координаты под ваш адрес, можно оставить как заглушку -->
+          <iframe title="Карта — Skifija" src="https://www.openstreetmap.org/export/embed.html?bbox=37.60%2C55.70%2C37.70%2C55.80&layer=mapnik" style="width:100%;height:100%"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container card" style="padding:18px; display:flex; align-items:center; justify-content:space-between; gap:12px">
+        <div>
+          <strong>Готовы принять сегодня</strong>
+          <div class="muted">Позвоните — ответим за минуту и подскажем по свободным местам</div>
+        </div>
+        <a class="btn btn-primary" href="tel:+7XXXXXXXXXX"><i class="fa-solid fa-phone"></i> Связаться</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div>© <span id="year"></span> Skifija — хостел для работы и отдыха</div>
+      <div class="muted">Политика конфиденциальности • Правила проживания</div>
+    </div>
+  </footer>
+
+  <!-- SEO: структурированные данные -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Hostel",
+    "name": "Skifija",
+    "description": "Уютный хостел: чисто, тихо, без пьянок. Парковка для фур, кухня, прачка, Wi‑Fi.",
+    "telephone": "+7XXXXXXXXXX",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ул. Ваша, д. 1",
+      "addressLocality": "Ваш город",
+      "addressCountry": "RU"
+    },
+    "amenityFeature": [
+      {"@type":"LocationFeatureSpecification","name":"Парковка для фур","value":true},
+      {"@type":"LocationFeatureSpecification","name":"Wi‑Fi","value":true},
+      {"@type":"LocationFeatureSpecification","name":"Кухня","value":true},
+      {"@type":"LocationFeatureSpecification","name":"Прачечная","value":true}
+    ],
+    "url": "https://ВАШ-АККАУНТ.github.io/ВАШ-РЕПО/"
+  }
+  </script>
+
+  <script>
+    // Текущий год в подвале
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Плавный скролл для якорей
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+  </script>
+</body>
+</html>
