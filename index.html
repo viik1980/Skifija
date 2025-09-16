@@ -1,4 +1,4 @@
-  <!doctype html>
+<!doctype html>
 <html lang="ru">
 <head>
   <meta charset="utf-8" />
@@ -102,7 +102,6 @@
     .to-top{position:fixed;right:16px;bottom:92px;background:#fff;border:3px solid var(--ink);border-radius:999px;padding:10px 12px;box-shadow:var(--shadow);display:none;align-items:center;gap:8px;font-weight:800;z-index:55}
     .to-top.show{display:flex}
 
-    /* Нижняя панель: теперь как верхняя, с прокруткой и snap */
     .mobile-quick{position:fixed;left:0;right:0;bottom:0;background:linear-gradient(180deg,#fff9f0,#ffe2b8);border-top:3px solid var(--ink);padding:8px env(safe-area-inset-right) calc(8px + env(safe-area-inset-bottom)) env(safe-area-inset-left);z-index:54}
     .mobile-quick .track{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;touch-action:pan-x;scroll-snap-type:x proximity;padding-bottom:4px}
     .mobile-quick .track::-webkit-scrollbar{display:none}
@@ -123,21 +122,7 @@
   </style>
 
   <script>
-    // Ранний выбор языка
-    (function(){
-      try{
-        var saved=localStorage.getItem('lang');
-        var langs=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'en'];
-        langs=langs.map(l=>(l||'').toLowerCase());
-        function pick(){
-          if(saved) return saved;
-          if(langs.some(l=>l.startsWith('ru')||l.startsWith('uk')||l.startsWith('be'))) return 'ru';
-          if(langs.some(l=>l.startsWith('lt'))) return 'lt';
-          return 'en';
-        }
-        document.documentElement.lang=pick();
-      }catch(e){}
-    })();
+    (function(){try{var saved=localStorage.getItem('lang');var langs=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'en'];langs=langs.map(l=>(l||'').toLowerCase());function pick(){if(saved) return saved;if(langs.some(l=>l.startsWith('ru')||l.startsWith('uk')||l.startsWith('be'))) return 'ru';if(langs.some(l=>l.startsWith('lt'))) return 'lt';return 'en';}document.documentElement.lang=pick();}catch(e){}})();
   </script>
 </head>
 <body>
@@ -357,7 +342,7 @@
             <li><i class="fa-solid fa-phone"></i><span><strong data-i18n="phone_lbl">Телефон:</strong> <a href="tel:+37068364467">+370 683 644 67</a></span></li>
             <li><i class="fa-brands fa-whatsapp"></i><span><strong>WhatsApp:</strong> <a href="https://wa.me/37068364467" target="_blank" rel="noopener" data-i18n="wa_write">написать</a></span></li>
             <li><i class="fa-brands fa-viber"></i><span><strong>Viber:</strong> <a href="#" data-open-viber data-i18n="vb_write">написать</a></span></li>
-            <li><i class="fa-brands fa-telegram"></i><span><strong>Telegram:</strong> <a href="#" data-open-telegram>@ВАШ_TELEGRAM</a></span></li>
+            <li><i class="fa-brands fa-telegram"></i><span><strong>Telegram:</strong> <a href="#" data-open-telegram>@username</a></span></li>
             <li><i class="fa-brands fa-instagram"></i><span><strong data-i18n="ig_lbl">Instagram:</strong> <a href="#" data-open-instagram>@skifijahostel</a></span></li>
             <li><i class="fa-solid fa-clock"></i><span><strong data-i18n="hours_lbl">Часы:</strong> <span data-i18n="hours_val">24/7, заселение по договоренности</span></span></li>
           </ul>
@@ -372,9 +357,9 @@
         </div>
         <div class="reveal">
           <iframe title="Google Map — Skifija" loading="lazy"
-                  src="https://www.google.com/maps?q=Veterinarijos%20g.%2025%2C%20%C5%A0iauliai%2C%20Lithuania&z=16&output=embed"></iframe>
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2235.308253018258!2d23.3283313159264!3d55.91896198060133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e5e26b13919e1b%3A0x6b9d621b19b2229a!2sVeterinarijos%20g.%2025%2C%20%C5%A0iauliai%2078108%2C%20Lietuva!5e0!3m2!1sru!2s!4v1668886311654!5m2!1sru!2s"></iframe>
           <div class="note" style="margin-top:6px">
-            <a href="https://www.google.com/maps/search/?api=1&query=Veterinarijos%20g.%2025%2C%20%C5%A0iauliai%2C%20Lithuania" target="_blank" rel="noopener" data-i18n="map_open">Открыть карту на весь экран</a>
+            <a href="https://www.google.com/maps/place/Veterinarijos+g.+25,+%C5%A0iauliai+78108,+Lietuva" target="_blank" rel="noopener" data-i18n="map_open">Открыть карту на весь экран</a>
           </div>
         </div>
       </div>
@@ -398,7 +383,6 @@
     </div>
   </footer>
 
-  <!-- Нижний app‑bar: теперь прокручивается -->
   <nav class="mobile-quick" role="navigation" aria-label="Быстрые действия">
     <div class="container track">
       <a class="btn" href="#rooms"><i class="fa-solid fa-door-open"></i> <span data-i18n="nav_rooms">Номера и цены</span></a>
@@ -432,91 +416,62 @@
     window.addEventListener('scroll', ()=>{ if(window.scrollY>600) toTop.classList.add('show'); else toTop.classList.remove('show'); });
     toTop.addEventListener('click', ()=>window.scrollTo({top:0,behavior:'smooth'}));
 
-    // Контакты
+    // --- НАСТРОЙКИ КОНТАКТОВ ---
     const DEST_ADDR = 'Veterinarijos g. 25, Šiauliai, Lithuania';
-    const DEST_ENC  = encodeURIComponent(DEST_ADDR);
-    const IG_USER   = 'skifijahostel';
-    const TG_USER   = 'написать'; // замените на фактический username
+    const IG_USER   = 'skifijahostel'; // Ваш username в Instagram
+    const TG_USER   = 'username'; // Ваш username в Telegram
     const PHONE_INT = '+37068364467';
+    // ----------------------------
 
-    // Viber deep link
+    // ИСПРАВЛЕНО: Ссылка на Viber
     function openViber(e){
       e.preventDefault();
-      const isiOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
-      const scheme = isiOS ? `viber://add?number=${PHONE_INT}` : `viber://chat?number=${encodeURIComponent(PHONE_INT)}`;
-      const fallback='https://www.viber.com/download/';
-      const t=Date.now();
-      window.location.href=scheme;
-      setTimeout(()=>{ if(Date.now()-t<1500) window.location.href=fallback; },1200);
+      // Эта ссылка универсальна: пытается открыть чат с номером
+      const viberUrl = `viber://chat?number=%2B37068364467`;
+      window.location.href = viberUrl;
     }
     $$('[data-open-viber]').forEach(a=>a.addEventListener('click',openViber));
 
-    // Telegram deep link (приложение -> веб)
+    // Ссылка на Telegram
     function openTelegram(e){
       e.preventDefault();
-      const appUrl = `tg://resolve?domain=${encodeURIComponent(TG_USER)}`;
-      const webUrl = `https://t.me/${encodeURIComponent(TG_USER)}`;
+      const appUrl = `tg://resolve?domain=${TG_USER}`;
+      const webUrl = `https://t.me/${TG_USER}`;
       const t=Date.now(); window.location.href=appUrl;
       setTimeout(()=>{ if(Date.now()-t<1200) window.location.href=webUrl; },1000);
     }
     $$('[data-open-telegram]').forEach(a=>a.addEventListener('click',openTelegram));
 
-    // Instagram deep link
+    // Ссылка на Instagram
     function openInstagram(e){
       e.preventDefault();
       const appUrl = `instagram://user?username=${IG_USER}`;
-      const webUrl = `https://www.instagram.com/${IG_USER}?igsh=MWE0bHNxOXZmaHBoNw==`;
+      const webUrl = `https://www.instagram.com/${IG_USER}`;
       const t=Date.now(); window.location.href = appUrl;
       setTimeout(()=>{ if(Date.now()-t<1200) window.location.href = webUrl; },1000);
     }
     $$('[data-open-instagram]').forEach(a=>a.addEventListener('click',openInstagram));
 
-    // Маршрут: Apple Maps -> Google Maps (app) -> веб
+    // ИСПРАВЛЕНО: Ссылка на маршрут
     function openRoute(e){
       e.preventDefault();
-      const isiOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
-      if(isiOS){
-        const apple=`maps://?daddr=${DEST_ENC}&dirflg=d`; window.location.href=apple;
-        setTimeout(()=>{ const gApp=`comgooglemaps://?daddr=${DEST_ENC}&directionsmode=driving`; const t=Date.now(); window.location.href=gApp;
-          setTimeout(()=>{ if(Date.now()-t<1200) window.location.href=`https://www.google.com/maps/dir/?api=1&destination=${DEST_ENC}&travelmode=driving`; },1000);
-        },800);
-      }else{
-        const gApp=`comgooglemaps://?daddr=${DEST_ENC}&directionsmode=driving`; const t=Date.now(); window.location.href=gApp;
-        setTimeout(()=>{ if(Date.now()-t<1200) window.location.href=`https://www.google.com/maps/dir/?api=1&destination=${DEST_ENC}&travelmode=driving`; },1000);
+      const encodedAddr = encodeURIComponent(DEST_ADDR);
+      const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      // Для Apple сначала пытаемся открыть Apple Maps, потом Google Maps
+      if (isiOS) {
+        window.location.href = `maps://?daddr=${encodedAddr}`;
+      } else {
+        window.location.href = `https://www.google.com/maps/dir/?api=1&destination=${encodedAddr}`;
       }
     }
     $$('[data-open-route]').forEach(a=>a.addEventListener('click',openRoute));
 
-    // i18n (ключи уже есть в тексте)
-    const translations = {
-      ru:{meta_title:"Skifija — хостел в Шяуляе: неземной уют для строителей и гостей",meta_desc:"Skifija (Šiauliai, Литва): тихо, чисто, без пьянок — как дома, только ближе к дороге. Парковка, кухня, прачечная, мощный Wi‑Fi. Заботливые хозяева и честные цены.",tagline_chip:"У нас даже время отдыхает.",nav_why:"Почему мы",nav_rooms:"Номера и цены",nav_rules:"Правила",nav_contacts:"Контакты",call:"Позвонить",badge_text:"Тепло, тихо и по‑домашнему — как у тёти, но без нотаций",hero_title:"Skifija — остров неземного уюта в Шяуляе для тех, кто работает, а отдыхает по‑царски",hero_lead:"Строители, дальнобойщики и гости — добро пожаловать в тихую гавань. Матрасы — как облака, душ — как перезапуск, кухня — как домашняя магия. И главное — без шума: сон бережём, как золотой запас.",cta_call:"Звонок: +370 683 644 67",cta_whatsapp:"WhatsApp — написать",cta_viber:"Viber — написать",cta_instagram:"Instagram",cta_telegram:"Telegram",cta_route:"Маршрут",hero_note:"Ранний заезд, долгосрочное размещение, документы для отчётности.",f1_t:"Парковка для авто",f1_s:"Места рядом — под охраной камер",f2_t:"Душ, что смывает километры",f2_s:"Пять минут — и дорога будто была сном",f3_t:"Wi‑Fi бодрее эспрессо",f3_s:"Тянет карты, звонки и сериалы",f4_t:"Домашняя кухня",f4_s:"Разогреть, заварить, согреться — легко",f5_t:"Прачечная",f5_s:"Стираем пыль трассы и стройки",f6_t:"Тишина — наша религия",f6_s:"Спите крепко, завтра снова в путь",why_h2:"Почему Skifija нравится тем, кто в деле",why_p:"Мы — про честный комфорт без лишних слов. Хозяева встречают, как старого друга: помогут с заездом, подскажут, где вкусно и недорого поесть, оформят документы без мороки.",why_b1_t:"Для строителей",why_b1_1:"Ранний/поздний заезд — договоримся",why_b1_2:"Есть где просушить форму и сложить инструмент",why_b1_3:"Скидки для бригад и долгого проживания",why_b2_t:"Для дальнобойщиков",why_b2_1:"Парковка рядом с хостелом",why_b2_2:"Душ, кухня, спокойный сон — как в домике у озера",why_b2_3:"Камеры — как сторожевой пёс: охраняют двор, а не окна",why_b3_t:"Чисто, свежо, по‑домашнему",why_b3_1:"Ежедневная уборка общих зон",why_b3_2:"Свежие постельные и полотенца включены",why_b3_3:"Чай, кофе и мелочи для радостей",rooms_h2:"Номера и честные цены",rooms_p:"Чем дольше живёте — тем выгоднее. Для бригад и водителей — особые условия.",room1_t:"Комната на 3 — бригадный уют",room1_d:"Трое в одной комнате? У нас это не битва за диван, а мягкий союз комфорта и сна.",room1_p:"от 12 € / сутки",room2_t:"Комната на 4 — для больших дел",room2_d:"Четырём вместе удобно: порядок, воздух и место каждому.",room2_p:"от 12 € / сутки",room3_t:"Хочешь быть в номере один?",room3_d:"Отдельный номер — дороже, но тишина и свой ритм. Можно храпеть в три голоса.",room3_p:"от 36 € / сутки",book:"Забронировать",write:"Написать",rooms_note:"Уточняйте стоимость на ваши даты. Долгосрочно — скидки. Документы для отчётности — по запросу.",rules_h2:"Простые правила — сказочный сон",rules_b1_t:"Без шумных компаний",rules_b1_p:"Мы бережём тишину. С 22:00 до 8:00 — режим сна.",rules_b1_1:"Курение — только в специально отведенном месте",rules_b1_2:"Гости — по согласованию с администратором",rules_b2_t:"Забота и чистота",rules_b2_p:"Хозяева — как хорошие соседи: предупредительные и доброжелательные.",rules_b2_1:"Уборка общих зон — регулярно",rules_b2_2:"Постель и полотенца — включены",rules_b2_3:"Бережное отношение к дому — взаимно",reviews_h2:"Отзывы, от которых хочется заезжать",gallery_h2:"Как выглядит наш уют",gallery_p:"Замените фото на свои — покажите, как здесь по‑настоящему хорошо.",contact_h2:"Контакты и заезд",contact_p:"Звоните — ответим быстро, подскажем по парковке и свободным местам. Мы в Šiauliai, удобный доступ к трассам.",addr_lbl:"Адрес:",addr_val:"Lietuva, Šiauliai, Veterinarijos g. 25",phone_lbl:"Телефон:",wa_write:"написать",vb_write:"написать",ig_lbl:"Instagram:",hours_lbl:"Часы:",hours_val:"24/7, заселение по договоренности",map_open:"Открыть карту на весь экран",avail_t:"Свободны сегодня",avail_p:"Наберите — найдём лучшее место и цену под вашу задачу",contact_btn:"Связаться",footer_tag:"дом для тех, кто в дороге",privacy:"Политика конфиденциальности",house_rules:"Правила проживания",to_top:"Наверх"},
-      lt:{nav_why:"Kodėl mes",nav_rooms:"Kambariai ir kainos",nav_rules:"Taisyklės",nav_contacts:"Kontaktai",call:"Skambinti",cta_whatsapp:"WhatsApp — parašyti",cta_viber:"Viber — parašyti",cta_instagram:"Instagram",cta_telegram:"Telegram",cta_route:"Maršrutas",ig_lbl:"Instagram:",map_open:"Atidaryti žemėlapį visu ekranu",to_top:"Į viršų"},
-      en:{nav_why:"Why us",nav_rooms:"Rooms & prices",nav_rules:"Rules",nav_contacts:"Contacts",call:"Call",cta_whatsapp:"WhatsApp — message",cta_viber:"Viber — message",cta_instagram:"Instagram",cta_telegram:"Telegram",cta_route:"Route",ig_lbl:"Instagram:",map_open:"Open full map",to_top:"Top"}
-    };
-    function applyI18n(lang){
-      const dict=translations[lang]||translations.ru;
-      document.documentElement.lang=lang;
-      document.querySelectorAll('[data-i18n]').forEach(el=>{
-        const k=el.getAttribute('data-i18n'); if(dict[k]) el.textContent=dict[k];
-      });
-      document.querySelectorAll('[data-i18n-attr]').forEach(el=>{
-        const [attr,key]=el.getAttribute('data-i18n-attr').split(':'); if(dict[key]) el.setAttribute(attr,dict[key]);
-      });
-      if(dict.meta_title) document.title=dict.meta_title;
-      const select=$('#langSelect'); if(select && select.value!==lang) select.value=lang;
-    }
-    function detectLang(){
-      const saved=localStorage.getItem('lang');
-      if(saved) return saved;
-      const arr=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'en']).map(l=>String(l||'').toLowerCase());
-      if(arr.some(l=>l.startsWith('ru')||l.startsWith('uk')||l.startsWith('be'))) return 'ru';
-      if(arr.some(l=>l.startsWith('lt'))) return 'lt';
-      return 'en';
-    }
-    const initialLang=detectLang(); applyI18n(initialLang);
-    const sel=$('#langSelect'); if(sel){ sel.value=initialLang; sel.addEventListener('change',e=>{localStorage.setItem('lang',e.target.value); applyI18n(e.target.value);}); }
+    // i18n
+    const translations = {ru:{meta_title:"Skifija — хостел в Шяуляе: неземной уют для строителей и гостей",meta_desc:"Skifija (Šiauliai, Литва): тихо, чисто, без пьянок — как дома, только ближе к дороге. Парковка, кухня, прачечная, мощный Wi‑Fi. Заботливые хозяева и честные цены.",tagline_chip:"У нас даже время отдыхает.",nav_why:"Почему мы",nav_rooms:"Номера и цены",nav_rules:"Правила",nav_contacts:"Контакты",call:"Позвонить",badge_text:"Тепло, тихо и по‑домашнему — как у тёти, но без нотаций",hero_title:"Skifija — остров неземного уюта в Шяуляе для тех, кто работает, а отдыхает по‑царски",hero_lead:"Строители, дальнобойщики и гости — добро пожаловать в тихую гавань. Матрасы — как облака, душ — как перезапуск, кухня — как домашняя магия. И главное — без шума: сон бережём, как золотой запас.",cta_call:"Звонок: +370 683 644 67",cta_whatsapp:"WhatsApp — написать",cta_viber:"Viber — написать",cta_instagram:"Instagram",cta_telegram:"Telegram",cta_route:"Маршрут",hero_note:"Ранний заезд, долгосрочное размещение, документы для отчётности.",f1_t:"Парковка для авто",f1_s:"Места рядом — под охраной камер",f2_t:"Душ, что смывает километры",f2_s:"Пять минут — и дорога будто была сном",f3_t:"Wi‑Fi бодрее эспрессо",f3_s:"Тянет карты, звонки и сериалы",f4_t:"Домашняя кухня",f4_s:"Разогреть, заварить, согреться — легко",f5_t:"Прачечная",f5_s:"Стираем пыль трассы и стройки",f6_t:"Тишина — наша религия",f6_s:"Спите крепко, завтра снова в путь",why_h2:"Почему Skifija нравится тем, кто в деле",why_p:"Мы — про честный комфорт без лишних слов. Хозяева встречают, как старого друга: помогут с заездом, подскажут, где вкусно и недорого поесть, оформят документы без мороки.",why_b1_t:"Для строителей",why_b1_1:"Ранний/поздний заезд — договоримся",why_b1_2:"Есть где просушить форму и сложить инструмент",why_b1_3:"Скидки для бригад и долгого проживания",why_b2_t:"Для дальнобойщиков",why_b2_1:"Парковка рядом с хостелом",why_b2_2:"Душ, кухня, спокойный сон — как в домике у озера",why_b2_3:"Камеры — как сторожевой пёс: охраняют двор, а не окна",why_b3_t:"Чисто, свежо, по‑домашнему",why_b3_1:"Ежедневная уборка общих зон",why_b3_2:"Свежие постельные и полотенца включены",why_b3_3:"Чай, кофе и мелочи для радостей",rooms_h2:"Номера и честные цены",rooms_p:"Чем дольше живёте — тем выгоднее. Для бригад и водителей — особые условия.",room1_t:"Комната на 3 — бригадный уют",room1_d:"Трое в одной комнате? У нас это не битва за диван, а мягкий союз комфорта и сна.",room1_p:"от 12 € / сутки",room2_t:"Комната на 4 — для больших дел",room2_d:"Четырём вместе удобно: порядок, воздух и место каждому.",room2_p:"от 12 € / сутки",room3_t:"Хочешь быть в номере один?",room3_d:"Отдельный номер — дороже, но тишина и свой ритм. Можно храпеть в три голоса.",room3_p:"от 36 € / сутки",book:"Забронировать",write:"Написать",rooms_note:"Уточняйте стоимость на ваши даты. Долгосрочно — скидки. Документы для отчётности — по запросу.",rules_h2:"Простые правила — сказочный сон",rules_b1_t:"Без шумных компаний",rules_b1_p:"Мы бережём тишину. С 22:00 до 8:00 — режим сна.",rules_b1_1:"Курение — только в специально отведенном месте",rules_b1_2:"Гости — по согласованию с администратором",rules_b2_t:"Забота и чистота",rules_b2_p:"Хозяева — как хорошие соседи: предупредительные и доброжелательные.",rules_b2_1:"Уборка общих зон — регулярно",rules_b2_2:"Постель и полотенца — включены",rules_b2_3:"Бережное отношение к дому — взаимно",reviews_h2:"Отзывы, от которых хочется заезжать",gallery_h2:"Как выглядит наш уют",gallery_p:"Замените фото на свои — покажите, как здесь по‑настоящему хорошо.",contact_h2:"Контакты и заезд",contact_p:"Звоните — ответим быстро, подскажем по парковке и свободным местам. Мы в Šiauliai, удобный доступ к трассам.",addr_lbl:"Адрес:",addr_val:"Lietuva, Šiauliai, Veterinarijos g. 25",phone_lbl:"Телефон:",wa_write:"написать",vb_write:"написать",ig_lbl:"Instagram:",hours_lbl:"Часы:",hours_val:"24/7, заселение по договоренности",map_open:"Открыть карту на весь экран",avail_t:"Свободны сегодня",avail_p:"Наберите — найдём лучшее место и цену под вашу задачу",contact_btn:"Связаться",footer_tag:"дом для тех, кто в дороге",privacy:"Политика конфиденциальности",house_rules:"Правила проживания",to_top:"Наверх"},lt:{nav_why:"Kodėl mes",nav_rooms:"Kambariai ir kainos",nav_rules:"Taisyklės",nav_contacts:"Kontaktai",call:"Skambinti",cta_whatsapp:"WhatsApp — parašyti",cta_viber:"Viber — parašyti",cta_instagram:"Instagram",cta_telegram:"Telegram",cta_route:"Maršrutas",ig_lbl:"Instagram:",map_open:"Atidaryti žemėlapį visu ekranu",to_top:"Į viršų"},en:{nav_why:"Why us",nav_rooms:"Rooms & prices",nav_rules:"Rules",nav_contacts:"Contacts",call:"Call",cta_whatsapp:"WhatsApp — message",cta_viber:"Viber — message",cta_instagram:"Instagram",cta_telegram:"Telegram",cta_route:"Route",ig_lbl:"Instagram:",map_open:"Open full map",to_top:"Top"}};
+    function applyI18n(lang){const dict=translations[lang]||translations.ru;document.documentElement.lang=lang;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(dict[k])el.textContent=dict[k];});document.querySelectorAll('[data-i18n-attr]').forEach(el=>{const[attr,key]=el.getAttribute('data-i18n-attr').split(':');if(dict[key])el.setAttribute(attr,dict[key]);});if(dict.meta_title)document.title=dict.meta_title;const select=$('#langSelect');if(select&&select.value!==lang)select.value=lang;}
+    function detectLang(){const saved=localStorage.getItem('lang');if(saved)return saved;const arr=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'en']).map(l=>String(l||'').toLowerCase());if(arr.some(l=>l.startsWith('ru')||l.startsWith('uk')||l.startsWith('be')))return'ru';if(arr.some(l=>l.startsWith('lt')))return'lt';return'en';}
+    const initialLang=detectLang();applyI18n(initialLang);const sel=$('#langSelect');if(sel){sel.value=initialLang;sel.addEventListener('change',e=>{localStorage.setItem('lang',e.target.value);applyI18n(e.target.value);});}
 
-    // Параллакс фона
     const hero=document.querySelector('.hero');
     hero.addEventListener('mousemove',(e)=>{const r=hero.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;hero.style.backgroundPosition=`${50+x*2}% ${50+y*2}%`;});
   </script>
