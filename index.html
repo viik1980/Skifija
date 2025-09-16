@@ -19,60 +19,80 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Nunito:wght@800&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d95?q=60&w=800&auto=format&fit=crop">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%8F%95%EF%B8%8F%3C/text%3E%3C/svg%3E">
   <style>
-    :root{--bg:#fff5e9;--card:#fffdf8;--text:#181818;--muted:#5a616b;--primary:#f59e0b;--accent:#2e86c1;--mint:#53a451;--ink:#141414;--ring:rgba(245,158,11,.35);--shadow:0 10px 0 rgba(20,20,20,.06);--radius:22px;--container:1120px}
+    :root{
+      --bg:#fff5e9; --card:#fffdf8; --text:#181818; --muted:#5a616b;
+      --primary:#f59e0b; --accent:#2e86c1; --mint:#53a451; --ink:#141414;
+      --ring: rgba(245,158,11,.35); --shadow: 0 10px 0 rgba(20,20,20,.06);
+      --radius:22px; --container:1120px;
+    }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-text-size-adjust:100%;text-size-adjust:100%;overflow-x:hidden;scroll-behavior:smooth}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-text-size-adjust:100%;text-size-adjust:100%;overflow-x:hidden}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;height:auto;display:block}
     .container{max-width:var(--container);margin:0 auto;padding:0 16px}
+
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
     .skip-link:focus{left:16px;top:10px;width:auto;height:auto;background:#fff;border:3px solid var(--ink);padding:8px 12px;border-radius:12px;z-index:1000}
+
     .btn{display:inline-flex;gap:8px;align-items:center;justify-content:center;padding:12px 16px;border-radius:999px;font-weight:800;transition:.2s;box-shadow:var(--shadow);border:3px solid var(--ink);background:#fff;min-height:44px}
     .btn-primary{background:linear-gradient(180deg,#ffd37a,#ffb648);color:#1b1b1b}
     .btn-primary:hover{transform:translateY(-2px)}
     .btn-outline:hover{background:#fff3e1}
+
     .badge,.speech{display:inline-block;background:#fff;border:3px solid var(--ink);padding:10px 14px;border-radius:18px;font-weight:800}
     .speech{position:relative}
     .speech:after{content:"";position:absolute;left:24px;bottom:-14px;width:20px;height:20px;background:#fff;border:3px solid var(--ink);border-top:none;border-left:none;transform:rotate(45deg)}
+
     header{position:sticky;top:0;z-index:60;background:rgba(255,245,233,.95);backdrop-filter:blur(8px);border-bottom:3px solid var(--ink)}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:64px}
     .logo{display:flex;gap:10px;align-items:center;font-weight:900;font-family:Nunito,Inter,sans-serif}
     .logo i{color:var(--primary);animation:floaty 6s ease-in-out infinite}
+
     .nav-links{display:flex;gap:8px;align-items:center;overflow-x:auto;padding:6px 0;touch-action:pan-x;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
     .nav-links a{white-space:nowrap;font-weight:800;border:2px solid var(--ink);background:#fff;padding:8px 12px;border-radius:999px;scroll-snap-align:center}
     .nav-links a:hover{background:#ffe9c7}
     .lang-switch{display:flex;gap:6px;align-items:center}
     .lang-select{appearance:none;border:3px solid var(--ink);background:#fff;border-radius:14px;padding:8px 12px;font-weight:800;color:#0b1220}
+
     .hero{background:linear-gradient(180deg,#d9edff 0%, #fff5e9 70%);border-bottom:3px solid var(--ink)}
     .hero-inner{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center;padding:64px 0}
-    h1{font-size:clamp(28px, 4vw, 44px);line-height:1.15;margin:14px 0 10px;font-weight:900;letter-spacing:-.02em}
+    h1{font-size:44px;line-height:1.15;margin:14px 0 10px;font-weight:900;letter-spacing:-.02em}
     .lead{color:#38424f;font-size:18px}
     .hero-card{background:var(--card);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);display:grid;gap:14px;border:3px solid var(--ink)}
-    .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .feature{background:var(--card);border-radius:16px;padding:16px;border:3px solid var(--ink);box-shadow:var(--shadow);display:flex;gap:12px;transform:translateY(6px);opacity:.001;transition:all .6s cubic-bezier(.2,.7,.2,1)}
     .feature i{color:var(--mint);font-size:22px;margin-top:2px}
+
     .section{padding:56px 0}
-    .section h2{font-size:clamp(26px, 3.5vw, 32px);margin:0 0 12px}
+    .section h2{font-size:32px;margin:0 0 12px}
     .muted{color:var(--muted)}
     .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);border:3px solid var(--ink);transform:translateY(12px);opacity:.001;transition:all .6s cubic-bezier(.2,.7,.2,1)}
-    .rooms{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+
+    .rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .room{padding:16px}
     .room .media{position:relative;overflow:hidden;border-radius:14px;aspect-ratio:4/3;background:#f2f2f2}
     .room .media img{width:100%;height:100%;object-fit:cover}
     .price{font-weight:900;font-size:22px;color:#0b8f74}
     .chip{display:inline-block;background:#fff3e1;color:#1b1b1b;border:3px solid var(--ink);border-radius:999px;padding:6px 10px;font-size:13px;font-weight:800}
+
     .list{list-style:none;padding:0;margin:0;display:grid;gap:8px}
     .list li{display:flex;gap:10px;align-items:flex-start}
     .list i{color:var(--mint);margin-top:4px}
     .cta{display:flex;flex-wrap:wrap;gap:8px}
-    .rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+
+    .rules{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .review{padding:18px}
+
     .gallery{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px}
     .gallery img{border-radius:14px;width:100%;height:100%;object-fit:cover;transform:scale(.98);opacity:.001;transition:all .8s cubic-bezier(.2,.7,.2,1)}
+
     .contact{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
-    .contact iframe{border:3px solid var(--ink);border-radius:16px;min-height:360px;width:100%}
+    .contact iframe{border:0;border-radius:16px;min-height:360px;width:100%}
+
     footer{padding:24px 0;border-top:3px solid var(--ink);color:var(--muted);font-size:14px}
     .note{font-size:13px;color:#64748b}
     .spark{position:relative}
@@ -81,19 +101,30 @@
     .show{transform:none !important;opacity:1 !important}
     .to-top{position:fixed;right:16px;bottom:92px;background:#fff;border:3px solid var(--ink);border-radius:999px;padding:10px 12px;box-shadow:var(--shadow);display:none;align-items:center;gap:8px;font-weight:800;z-index:55}
     .to-top.show{display:flex}
-    .mobile-quick{position:fixed;left:0;right:0;bottom:0;background:linear-gradient(180deg,#fff9f0,#ffe2b8);border-top:3px solid var(--ink);padding:8px env(safe-area-inset-right) calc(8px + env(safe-area-inset-bottom)) env(safe-area-inset-left);z-index:54;display:none}
+
+    .mobile-quick{position:fixed;left:0;right:0;bottom:0;background:linear-gradient(180deg,#fff9f0,#ffe2b8);border-top:3px solid var(--ink);padding:8px env(safe-area-inset-right) calc(8px + env(safe-area-inset-bottom)) env(safe-area-inset-left);z-index:54}
     .mobile-quick .track{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;touch-action:pan-x;scroll-snap-type:x proximity;padding-bottom:4px}
     .mobile-quick .track::-webkit-scrollbar{display:none}
     .mobile-quick .track{scrollbar-width:none}
     .mobile-quick .btn{flex:0 0 auto;min-width:128px;scroll-snap-align:center}
-    @media (max-width:1000px){.hero-inner{grid-template-columns:1fr;padding-top:24px;padding-bottom:32px}.contact{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr}.room .media{aspect-ratio:16/10}.lang-switch{display:none}.mobile-quick{display:block}}
-    @media (max-width:768px){.nav-links{display:none}}
+
+    @media (max-width:1000px){
+      .hero-inner{grid-template-columns:1fr}
+      .grid-3,.rooms,.reviews,.contact,.rules{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr 1fr}
+      .room .media{aspect-ratio:16/10}
+      .lang-switch{display:none}
+      .mobile-quick{display:block}
+    }
     :focus-visible{outline:3px solid var(--ring);outline-offset:2px;border-radius:10px}
     @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
     @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(245,158,11,.5)}70%{box-shadow:0 0 0 12px rgba(245,158,11,0)}100%{box-shadow:0 0 0 0 rgba(245,158,11,0)}}
   </style>
-</head>
 
+  <script>
+    (function(){try{var saved=localStorage.getItem('lang');var langs=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'en'];langs=langs.map(l=>(l||'').toLowerCase());function pick(){if(saved) return saved;if(langs.some(l=>l.startsWith('ru')||l.startsWith('uk')||l.startsWith('be'))) return 'ru';if(langs.some(l=>l.startsWith('lt'))) return 'lt';return 'en';}document.documentElement.lang=pick();}catch(e){}})();
+  </script>
+</head>
 <body>
   <a class="skip-link" href="#main">Пропустить к содержанию</a>
 
@@ -131,9 +162,21 @@
           <p class="lead" data-i18n="hero_lead">Строители, дальнобойщики и гости — добро пожаловать в тихую гавань. Матрасы — как облака, душ — как перезапуск, кухня — как домашняя магия. И главное — без шума: сон бережём, как золотой запас.</p>
           <div class="cta" style="margin-top:14px">
             <a class="btn btn-primary pulse" href="tel:+37068364467"><i class="fa-solid fa-phone"></i> <span data-i18n="cta_call">Звонок: +370 683 644 67</span></a>
-            <a class="btn btn-outline" href="https://wa.me/37068364467" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="cta_whatsapp">WhatsApp</span></a>
-            <a class="btn btn-outline" href="#" data-open-viber><i class="fa-brands fa-viber"></i> <span data-i18n="cta_viber">Viber</span></a>
-            <a class="btn btn-outline" href="#" data-open-telegram><i class="fa-brands fa-telegram"></i> <span data-i18n="cta_telegram">Telegram</span></a>
+            <a class="btn btn-outline" href="https://wa.me/37068364467" target="_blank" rel="noopener">
+              <i class="fa-brands fa-whatsapp"></i> <span data-i18n="cta_whatsapp">WhatsApp — написать</span>
+            </a>
+            <a class="btn btn-outline" href="#" data-open-viber>
+              <i class="fa-brands fa-viber"></i> <span data-i18n="cta_viber">Viber — написать</span>
+            </a>
+            <a class="btn btn-outline" href="#" data-open-telegram>
+              <i class="fa-brands fa-telegram"></i> <span data-i18n="cta_telegram">Telegram</span>
+            </a>
+            <a class="btn btn-outline" href="#" data-open-instagram>
+              <i class="fa-brands fa-instagram"></i> <span data-i18n="cta_instagram">Instagram</span>
+            </a>
+            <a class="btn btn-outline" href="#" data-open-route>
+              <i class="fa-solid fa-route"></i> <span data-i18n="cta_route">Маршрут</span>
+            </a>
           </div>
           <p class="muted" style="margin-top:8px" data-i18n="hero_note">Ранний заезд, долгосрочное размещение, документы для отчётности.</p>
         </div>
@@ -150,173 +193,123 @@
       </div>
     </section>
 
-    <section id="contacts" class="section">
-      <div class="container contact">
-        <div class="card reveal" style="padding:16px">
-          <h2 data-i18n="contact_h2">Контакты и заезд</h2>
-          <p class="muted" data-i18n="contact_p">Звоните — ответим быстро, подскажем по парковке и свободным местам. Мы в Šiauliai, удобный доступ к трассам.</p>
-          <ul class="list">
-            <li><i class="fa-solid fa-location-dot"></i><span><strong data-i18n="addr_lbl">Адрес:</strong> <span data-i18n="addr_val">Lietuva, Šiauliai, Veterinarijos g. 25</span></span></li>
-            <li><i class="fa-solid fa-phone"></i><span><strong data-i18n="phone_lbl">Телефон:</strong> <a href="tel:+37068364467">+370 683 644 67</a></span></li>
-            <li><i class="fa-brands fa-whatsapp"></i><span><strong>WhatsApp:</strong> <a href="https://wa.me/37068364467" target="_blank" rel="noopener" data-i18n="wa_write">написать</a></span></li>
-            <li><i class="fa-brands fa-viber"></i><span><strong>Viber:</strong> <a href="#" data-open-viber data-i18n="vb_write">написать</a></span></li>
-            <li><i class="fa-brands fa-telegram"></i><span><strong>Telegram:</strong> <a href="#" data-open-telegram data-i18n="tg_write">написать</a></span></li>
-            <li><i class="fa-brands fa-instagram"></i><span><strong data-i18n="ig_lbl">Instagram:</strong> <a href="#" data-open-instagram>@skifijahostel</a></span></li>
-            <li><i class="fa-solid fa-clock"></i><span><strong data-i18n="hours_lbl">Часы:</strong> <span data-i18n="hours_val">24/7, заселение по договоренности</span></span></li>
-          </ul>
-          <div class="cta" style="margin-top:12px">
-            <a class="btn btn-primary" href="tel:+37068364467"><i class="fa-solid fa-phone"></i> <span data-i18n="call">Позвонить</span></a>
-            <a class="btn btn-outline" href="#" data-open-route><i class="fa-solid fa-route"></i> <span data-i18n="cta_route">Маршрут</span></a>
+    <section id="why" class="section" aria-labelledby="why-title">
+      <div class="container">
+        <h2 id="why-title" data-i18n="why_h2">Почему Skifija нравится тем, кто в деле</h2>
+        <p class="muted" data-i18n="why_p">Мы — про честный комфорт без лишних слов. Хозяева встречают, как старого друга: помогут с заездом, подскажут, где вкусно и недорого поесть, оформят документы без мороки.</p>
+        <div class="grid-3" style="margin-top:12px">
+          <div class="card reveal" style="padding:16px">
+            <h3><i class="fa-solid fa-helmet-safety" style="color:var(--mint)"></i> <span data-i18n="why_b1_t">Для строителей</span></h3>
+            <ul class="list">
+              <li><i class="fa-solid fa-check"></i><span data-i18n="why_b1_1">Ранний/поздний заезд — договоримся</span></li>
+              <li><i class="fa-solid fa-check"></i><span data-i18n="why_b1_2">Есть где просушить форму и сложить инструмент</span></li>
+              <li><i class="fa-solid fa-check"></i><span data-i18n="why_b1_3">Скидки для бригад и долгого проживания</span></li>
+            </ul>
           </div>
-        </div>
-        <div class="reveal">
-          <iframe title="Google Map — Skifija" loading="lazy"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2265.719655613303!2d23.34350131586938!3d55.9181189805977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e5e2e431303e39%3A0x6b44616235b396a8!2sVeterinarijos%20g.%2025%2C%20%C5%A0iauliai%2078107%2C%20Lithuania!5e0!3m2!1sen!2sus!4v1663333222111!5m2!1sen!2sus"></iframe>
-          <div class="note" style="margin-top:6px">
-            <a href="https://www.google.com/maps/place/Veterinarijos+g.+25,+%C5%A0iauliai+78107,+Lithuania" target="_blank" rel="noopener" data-i18n="map_open">Открыть карту на весь экран</a>
+          <div class="card reveal" style="padding:16px">
+            <h3><i class="fa-solid fa-road" style="color:var(--mint)"></i> <span data-i18n="why_b2_t">Для дальнобойщиков</span></h3>
+            <ul class="list">
+              <li><i class="fa-solid fa-check"></i><span data-i18n="why_b2_1">Парковка рядом с хостелом</span></li>
+              <li><i class="fa-solid fa-check"></i><span data-i18n="why_b2_2">Душ, кухня, спокойный сон — как в домике у озера</span></li>
+              <li><i class="fa-solid fa-check"></i><span data-i18n="why_b2_3">Камеры — как сторожевой пёс: охраняют двор, а не окна</span></li>
+            </ul>
+          </div>
+          <div class="card reveal" style="padding:16px">
+            <h3><i class="fa-solid fa-sparkles" style="color:var(--mint)"></i> <span data-i18n="why_b3_t">Чисто, свежо, по‑домашнему</span></h3>
+            <ul class="list">
+              <li><i class="fa-solid fa-check"></i><span data-i18n="why_b3_1">Ежедневная уборка общих зон</span></li>
+              <li><i class="fa-solid fa-check"></i><span data-i18n="why_b3_2">Свежие постельные и полотенца включены</span></li>
+              <li><i class="fa-solid fa-check"></i><span data-i18n="why_b3_3">Чай, кофе и мелочи для радостей</span></li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
-    
-    </main>
 
-  <footer>
-    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
-      <div>© <span id="year"></span> Skifija — Šiauliai • <span data-i18n="footer_tag">дом для тех, кто в дороге</span></div>
-      <div class="muted"><span data-i18n="privacy">Политика конфиденциальности</span> • <span data-i18n="house_rules">Правила проживания</span></div>
-    </div>
-  </footer>
+    <section id="rooms" class="section" aria-labelledby="rooms-title" style="background:linear-gradient(180deg,#ffffff, #fef6e8)">
+      <div class="container">
+        <h2 id="rooms-title" data-i18n="rooms_h2">Номера и честные цены</h2>
+        <p class="muted" data-i18n="rooms_p">Чем дольше живёте — тем выгоднее. Для бригад и водителей — особые условия.</p>
+        <div class="rooms">
+          <div class="card room reveal">
+            <div class="media">
+              <img loading="lazy" decoding="async" width="900" height="600"
+                   src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d95?q=60&w=700&auto=format&fit=crop"
+                   srcset="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d95?q=60&w=400&auto=format&fit=crop 400w,
+                           https://images.unsplash.com/photo-1505691723518-36a5ac3b2d95?q=60&w=700&auto=format&fit=crop 700w,
+                           https://images.unsplash.com/photo-1505691723518-36a5ac3b2d95?q=60&w=900&auto=format&fit=crop 900w"
+                   sizes="(max-width: 700px) 100vw, (max-width: 1120px) 33vw, 360px"
+                   alt="Трёхместная комната">
+            </div>
+            <h3 data-i18n="room1_t">Комната на 3 — бригадный уют</h3>
+            <p class="muted" data-i18n="room1_d">Трое в одной комнате? У нас это не битва за диван, а мягкий союз комфорта и сна.</p>
+            <div class="price" data-i18n="room1_p">от 12 € / сутки за одно место.</div>
+            <div class="cta" style="margin-top:10px">
+              <a class="btn btn-primary" href="tel:+37068364467"><i class="fa-solid fa-phone"></i> <span data-i18n="book">Забронировать</span></a>
+              <a class="btn btn-outline" href="https://wa.me/37068364467"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="write">Написать</span></a>
+              <a class="btn btn-outline" href="#" data-open-viber><i class="fa-brands fa-viber"></i> Viber</a>
+              <a class="btn btn-outline" href="#" data-open-telegram><i class="fa-brands fa-telegram"></i> Telegram</a>
+            </div>
+          </div>
+          <div class="card room reveal">
+            <div class="media">
+              <img loading="lazy" decoding="async" width="900" height="600"
+                   src="https://images.unsplash.com/photo-1595526114035-5f3be9b1d1ee?q=60&w=700&auto=format&fit=crop"
+                   srcset="https://images.unsplash.com/photo-1595526114035-5f3be9b1d1ee?q=60&w=400&auto=format&fit=crop 400w,
+                           https://images.unsplash.com/photo-1595526114035-5f3be9b1d1ee?q=60&w=700&auto=format&fit=crop 700w,
+                           https://images.unsplash.com/photo-1595526114035-5f3be9b1d1ee?q=60&w=900&auto=format&fit=crop 900w"
+                   sizes="(max-width: 700px) 100vw, (max-width: 1120px) 33vw, 360px"
+                   alt="Четырёхместная комната">
+            </div>
+            <h3 data-i18n="room2_t">Комната на 4 в Skifija - это место, где большие дела начинаються с хорошего отдыха! </h3>
+            <p class="muted" data-i18n="room2_d">Каждая кровать - как островок покоя, а вместе они превращаются в архипелаг уюта.</p>
+            <div class="price" data-i18n="room2_p">от 12 € / сутки за одно место.</div>
+            <div class="cta" style="margin-top:10px">
+              <a class="btn btn-primary" href="tel:+37068364467"><i class="fa-solid fa-phone"></i> <span data-i18n="book">Забронировать</span></a>
+              <a class="btn btn-outline" href="https://wa.me/37068364467"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="write">Написать</span></a>
+              <a class="btn btn-outline" href="#" data-open-viber><i class="fa-brands fa-viber"></i> Viber</a>
+              <a class="btn btn-outline" href="#" data-open-telegram><i class="fa-brands fa-telegram"></i> Telegram</a>
+            </div>
+          </div>
+          <div class="card room reveal">
+            <div class="media">
+              <img loading="lazy" decoding="async" width="900" height="600"
+                   src="https://images.unsplash.com/photo-1560448075-bb4caa6c4f63?q=60&w=700&auto=format&fit=crop"
+                   srcset="https://images.unsplash.com/photo-1560448075-bb4caa6c4f63?q=60&w=400&auto=format&fit=crop 400w,
+                           https://images.unsplash.com/photo-1560448075-bb4caa6c4f63?q=60&w=700&auto=format&fit=crop 700w,
+                           https://images.unsplash.com/photo-1560448075-bb4caa6c4f63?q=60&w=900&auto=format&fit=crop 900w"
+                   sizes="(max-width: 700px) 100vw, (max-width: 1120px) 33vw, 360px"
+                   alt="Отдельная комната">
+            </div>
+            <h3 data-i18n="room3_t">Хочешь быть в номере один?</h3>
+            <p class="muted" data-i18n="room3_d">Отдельный номер — дороже, но тишина и свой ритм. Можно храпеть в три голоса.</p>
+            <div class="price" data-i18n="room3_p">от 36 € / сутки</div>
+            <div class="cta" style="margin-top:10px">
+              <a class="btn btn-primary" href="tel:+37068364467"><i class="fa-solid fa-phone"></i> <span data-i18n="book">Забронировать</span></a>
+              <a class="btn btn-outline" href="https://wa.me/37068364467"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="write">Написать</span></a>
+              <a class="btn btn-outline" href="#" data-open-viber><i class="fa-brands fa-viber"></i> Viber</a>
+              <a class="btn btn-outline" href="#" data-open-telegram><i class="fa-brands fa-telegram"></i> Telegram</a>
+            </div>
+          </div>
+        </div>
+        <p class="note" style="margin-top:10px" data-i18n="rooms_note">Уточняйте стоимость на ваши даты. Долгосрочно — скидки. Документы для отчётности — по запросу.</p>
+      </div>
+    </section>
 
-  <nav class="mobile-quick" role="navigation" aria-label="Быстрые действия">
-    <div class="container track">
-      <a class="btn" href="#rooms"><i class="fa-solid fa-door-open"></i> <span data-i18n="nav_rooms">Номера и цены</span></a>
-      <a class="btn" href="tel:+37068364467"><i class="fa-solid fa-phone"></i> <span data-i18n="call">Позвонить</span></a>
-      <a class="btn" href="https://wa.me/37068364467" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-      <a class="btn" href="#" data-open-viber><i class="fa-brands fa-viber"></i> Viber</a>
-      <a class="btn" href="#" data-open-telegram><i class="fa-brands fa-telegram"></i> Telegram</a>
-      <a class="btn" href="#" data-open-route><i class="fa-solid fa-route"></i> <span data-i18n="cta_route">Маршрут</span></a>
-    </div>
-  </nav>
-
-  <button class="to-top" id="toTop"><i class="fa-solid fa-arrow-up"></i><span data-i18n="to_top">Наверх</span></button>
-
-  <script>
-    // --- НАСТРОЙКИ КОНТАКТОВ (РЕДАКТИРОВАТЬ ЗДЕСЬ) ---
-    const CONTACT_CONFIG = {
-      ADDRESS: 'Veterinarijos g. 25, Šiauliai, Lithuania',
-      PHONE_NUMBER: '+37068364467',
-      TELEGRAM_USER: 'username', // ЗАМЕНИТЕ на ваш username в Telegram (без @)
-      INSTAGRAM_USER: 'skifijahostel'
-    };
-    // ----------------------------------------------------
-
-    const $ = s => document.querySelector(s);
-    const $$ = s => document.querySelectorAll(s);
-    $('#year').textContent = new Date().getFullYear();
-
-    $$('a[href="#"]').forEach(a => a.addEventListener('click', e => e.preventDefault()));
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    $$('.reveal, .feature').forEach(el => observer.observe(el));
-
-    const toTopBtn = $('#toTop');
-    window.addEventListener('scroll', () => {
-      toTopBtn.classList.toggle('show', window.scrollY > 600);
-    });
-    toTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    
-    function attemptDeepLink(appUrl, fallbackUrl) {
-        const t = Date.now();
-        const iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        document.body.appendChild(iframe);
-        iframe.src = appUrl;
-
-        setTimeout(() => {
-            if (Date.now() - t < 1200) {
-                window.location.href = fallbackUrl;
-            }
-            document.body.removeChild(iframe);
-        }, 1000);
-    }
-    
-    $$('[data-open-viber]').forEach(a => a.addEventListener('click', e => {
-        e.preventDefault();
-        window.location.href = `viber://chat?number=${encodeURIComponent(CONTACT_CONFIG.PHONE_NUMBER.replace('+', ''))}`;
-    }));
-
-    $$('[data-open-telegram]').forEach(a => a.addEventListener('click', e => {
-        e.preventDefault();
-        attemptDeepLink(`tg://resolve?domain=${CONTACT_CONFIG.TELEGRAM_USER}`, `https://t.me/${CONTACT_CONFIG.TELEGRAM_USER}`);
-    }));
-    
-    $$('[data-open-instagram]').forEach(a => a.addEventListener('click', e => {
-        e.preventDefault();
-        attemptDeepLink(`instagram://user?username=${CONTACT_CONFIG.INSTAGRAM_USER}`, `https://www.instagram.com/${CONTACT_CONFIG.INSTAGRAM_USER}`);
-    }));
-
-    $$('[data-open-route]').forEach(a => a.addEventListener('click', e => {
-      e.preventDefault();
-      const encodedAddr = encodeURIComponent(CONTACT_CONFIG.ADDRESS);
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-      const mapsUrl = isIOS 
-        ? `maps://?daddr=${encodedAddr}`
-        : `https://www.google.com/maps/dir/?api=1&destination=${encodedAddr}`;
-      window.open(mapsUrl, '_blank');
-    }));
-
-    // i18n
-    const translations = {
-      ru: { meta_title: "Skifija — хостел в Шяуляе: неземной уют для строителей и гостей", meta_desc: "Skifija (Šiauliai, Литва): тихо, чисто, без пьянок — как дома, только ближе к дороге. Парковка, кухня, прачечная, мощный Wi‑Fi. Заботливые хозяева и честные цены.", tagline_chip: "У нас даже время отдыхает.", nav_why: "Почему мы", nav_rooms: "Номера и цены", nav_rules: "Правила", nav_contacts: "Контакты", call: "Позвонить", badge_text: "Тепло, тихо и по‑домашнему — как у тёти, но без нотаций", hero_title: "Skifija — остров неземного уюта в Шяуляе для тех, кто путешествует, а отдыхает по‑царски", hero_lead: "Строители, дальнобойщики и гости — добро пожаловать в тихую гавань. Матрасы — как облака, душ — как перезапуск, кухня — как домашняя магия. И главное — без шума: сон бережём, как золотой запас.", cta_call: "Звонок: +370 683 644 67", cta_whatsapp: "WhatsApp", cta_viber: "Viber", cta_telegram: "Telegram", cta_route: "Маршрут", hero_note: "Ранний заезд, долгосрочное размещение, документы для отчётности.", f1_t: "Парковка для авто", f1_s: "Места рядом — под охраной камер", f2_t: "Душ, что смывает километры", f2_s: "Пять минут — и дорога будто была сном", f3_t: "Wi‑Fi бодрее эспрессо", f3_s: "Тянет карты, звонки и сериалы", f4_t: "Домашняя кухня", f4_s: "Разогреть, заварить, согреться — легко", f5_t: "Прачечная", f5_s: "Стираем пыль трассы и стройки", f6_t: "Тишина — наша религия", f6_s: "Спите крепко, завтра снова в путь", contact_h2: "Контакты и заезд", contact_p: "Звоните — ответим быстро, подскажем по парковке и свободным местам. Мы в Šiauliai, удобный доступ к трассам.", addr_lbl: "Адрес:", addr_val: "Lietuva, Šiauliai, Veterinarijos g. 25", phone_lbl: "Телефон:", wa_write: "написать", vb_write: "написать", tg_write: "написать", ig_lbl: "Instagram:", hours_lbl: "Часы:", hours_val: "24/7, заселение по договоренности", map_open: "Открыть карту на весь экран", footer_tag: "дом для тех, кто в дороге", privacy: "Политика конфиденциальности", house_rules: "Правила проживания", to_top: "Наверх" },
-      lt: { meta_title: "Skifija — Nakvynės namai Šiauliuose: jaukumas statybininkams ir svečiams", meta_desc: "Skifija (Šiauliai, Lietuva): tylu, švaru, be išgertuvių – kaip namie, tik arčiau kelio. Parkavimas, virtuvė, skalbykla, galingas Wi-Fi. Rūpestingi šeimininkai ir sąžiningos kainos.", tagline_chip: "Pas mus net laikas ilsisi.", nav_why: "Kodėl mes", nav_rooms: "Kambariai ir kainos", nav_rules: "Taisyklės", nav_contacts: "Kontaktai", call: "Skambinti", badge_text: "Šilta, tylu ir jauku – kaip pas tetą, bet be pamokslų", hero_title: "Skifija – nežemiško jaukumo sala Šiauliuose tiems, kurie keliauja, o ilsisi karališkai", hero_lead: "Statybininkai, tolimųjų reisų vairuotojai ir svečiai – sveiki atvykę į ramų uostą. Čiužiniai – kaip debesys, dušas – kaip perkrovimas, virtuvė – kaip namų magija. O svarbiausia – be triukšmo: miegą saugome kaip aukso atsargas.", cta_call: "Skambinti: +370 683 644 67", cta_whatsapp: "WhatsApp", cta_viber: "Viber", cta_telegram: "Telegram", cta_route: "Maršrutas", hero_note: "Ankstyvas atvykimas, ilgalaikis apgyvendinimas, ataskaitų dokumentai.", f1_t: "Automobilių stovėjimo aikštelė", f1_s: "Vietos šalia – saugomos kamerų", f2_t: "Dušas, nuplaunantis kilometrus", f2_s: "Penkios minutės – ir kelias atrodė kaip sapnas", f3_t: "Wi-Fi greitesnis už espreso", f3_s: "Veikia žemėlapiai, skambučiai ir serialai", f4_t: "Namų virtuvė", f4_s: "Pašildyti, užplikyti, sušilti – lengva", f5_t: "Skalbykla", f5_s: "Skalbiame trasos ir statybų dulkes", f6_t: "Tyla – mūsų religija", f6_s: "Miegokite kietai, rytoj vėl į kelią", contact_h2: "Kontaktai ir atvykimas", contact_p: "Skambinkite – atsakysime greitai, patarsime dėl parkavimo ir laisvų vietų. Mes Šiauliuose, patogus susisiekimas su pagrindiniais keliais.", addr_lbl: "Adresas:", addr_val: "Lietuva, Šiauliai, Veterinarijos g. 25", phone_lbl: "Telefonas:", wa_write: "parašyti", vb_write: "parašyti", tg_write: "parašyti", ig_lbl: "Instagram:", hours_lbl: "Valandos:", hours_val: "24/7, apgyvendinimas pagal susitarimą", map_open: "Atidaryti žemėlapį per visą ekraną", footer_tag: "namai tiems, kas kelyje", privacy: "Privatumo politika", house_rules: "Gyvenimo taisyklės", to_top: "Į viršų" },
-      en: { meta_title: "Skifija — Hostel in Šiauliai: Comfort for Builders and Guests", meta_desc: "Skifija (Šiauliai, Lithuania): quiet, clean, no parties – like home, but closer to the road. Parking, kitchen, laundry, strong Wi-Fi. Caring hosts and fair prices.", tagline_chip: "Where even time rests.", nav_why: "Why us", nav_rooms: "Rooms & prices", nav_rules: "Rules", nav_contacts: "Contacts", call: "Call", badge_text: "Warm, quiet, and homely – like at your aunt's, but without the lectures", hero_title: "Skifija – an island of comfort in Šiauliai for those who travel, but rest like royalty", hero_lead: "Builders, truck drivers, and guests – welcome to a quiet haven. Mattresses like clouds, showers like a restart, a kitchen like home magic. And most importantly – no noise: we protect sleep like a gold reserve.", cta_call: "Call: +370 683 644 67", cta_whatsapp: "WhatsApp", cta_viber: "Viber", cta_telegram: "Telegram", cta_route: "Get Directions", hero_note: "Early check-in, long-term stays, and official documents for reporting available.", f1_t: "Car Parking", f1_s: "Nearby spots monitored by cameras", f2_t: "A shower that washes away the miles", f2_s: "Five minutes, and the road feels like a dream", f3_t: "Wi-Fi faster than espresso", f3_s: "Handles maps, calls, and TV shows", f4_t: "Homestyle Kitchen", f4_s: "Heat, brew, warm up – it's easy", f5_t: "Laundry Room", f5_s: "We wash away the dust of the road and construction site", f6_t: "Silence is our religion", f6_s: "Sleep tight, tomorrow you're back on the road", contact_h2: "Contacts & Check-in", contact_p: "Call us – we'll answer quickly and advise on parking and availability. We are in Šiauliai, with convenient access to main roads.", addr_lbl: "Address:", addr_val: "Lietuva, Šiauliai, Veterinarijos g. 25", phone_lbl: "Phone:", wa_write: "message", vb_write: "message", tg_write: "message", ig_lbl: "Instagram:", hours_lbl: "Hours:", hours_val: "24/7, check-in by appointment", map_open: "Open full-screen map", footer_tag: "a home for those on the road", privacy: "Privacy Policy", house_rules: "House Rules", to_top: "To Top" }
-    };
-    function applyI18n(lang) {
-      const dict = translations[lang] || translations.ru;
-      document.documentElement.lang = lang;
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const k = el.getAttribute('data-i18n');
-        if (dict[k]) el.textContent = dict[k];
-      });
-      document.querySelectorAll('[data-i18n-attr]').forEach(el => {
-        const [attr, key] = el.getAttribute('data-i18n-attr').split(':');
-        if (dict[key]) el.setAttribute(attr, dict[key]);
-      });
-      if (dict.meta_title) document.title = dict.meta_title;
-      const select = $('#langSelect');
-      if (select && select.value !== lang) select.value = lang;
-    }
-    function detectLang() {
-      try {
-        const saved = localStorage.getItem('lang');
-        if (saved && translations[saved]) return saved;
-        const userLangs = navigator.languages || [navigator.language];
-        for (const lang of userLangs) {
-          const l = lang.toLowerCase().slice(0, 2);
-          if (l === 'ru' || l === 'uk' || l === 'be') return 'ru';
-          if (l === 'lt') return 'lt';
-        }
-      } catch (e) {}
-      return 'en';
-    }
-    const initialLang = detectLang();
-    applyI18n(initialLang);
-    const sel = $('#langSelect');
-    if (sel) {
-      sel.value = initialLang;
-      sel.addEventListener('change', e => {
-        localStorage.setItem('lang', e.target.value);
-        applyI18n(e.target.value);
-      });
-    }
-  </script>
-</body>
-</html>
+    <section id="rules" class="section">
+      <div class="container">
+        <h2 data-i18n="rules_h2">Простые правила — сказочный сон</h2>
+        <div class="rules">
+          <div class="card reveal" style="padding:16px">
+            <h3><i class="fa-solid fa-ban" style="color:#ef4444"></i> <span data-i18n="rules_b1_t">Без шумных компаний</span></h3>
+            <p class="muted" data-i18n="rules_b1_p">Мы бережём тишину. С 22:00 до 8:00 — режим сна.</p>
+            <ul class="list">
+              <li><i class="fa-solid fa-check"></i><span data-i18n="rules_b1_1">Курение — только в специально отведенном месте</span></li>
+              <li><i class="fa-solid fa-check"></i><span data-i18n="rules_b1_2">Гости — по согласованию с администратором</span></li>
+            </ul>
+          </div>
+          <div class="card reveal" style="padding:16px">
+            <h3><i class="fa-solid fa-hands-bubbles" style="color:var(--mint)"></i> <span data-i18n="rules_b2_t">Забота и чистота</span></h3>
+            <p class="muted" data-i18n="rules_b2_p">Хозяева — как хорошие соседи: предупредительные и доброжелательные.</p>
+            <ul class="list">
+              <li><i class="fa-solid fa-check">
