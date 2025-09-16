@@ -357,7 +357,7 @@
             <li><i class="fa-solid fa-phone"></i><span><strong data-i18n="phone_lbl">Телефон:</strong> <a href="tel:+37068364467">+370 683 644 67</a></span></li>
             <li><i class="fa-brands fa-whatsapp"></i><span><strong>WhatsApp:</strong> <a href="https://wa.me/37068364467" target="_blank" rel="noopener" data-i18n="wa_write">написать</a></span></li>
             <li><i class="fa-brands fa-viber"></i><span><strong>Viber:</strong> <a href="#" data-open-viber data-i18n="vb_write">написать</a></span></li>
-            <li><i class="fa-brands fa-telegram"></i><span><strong>Telegram:</strong> <a href="#" data-open-telegram>@ВАШ_TELEGRAM</a></span></li>
+            <li><i class="fa-brands fa-telegram"></i><span><strong>Telegram:</strong> <a href="#" data-open-telegram>+370 683 644 67</a></span></li>
             <li><i class="fa-brands fa-instagram"></i><span><strong data-i18n="ig_lbl">Instagram:</strong> <a href="#" data-open-instagram>@skifijahostel</a></span></li>
             <li><i class="fa-solid fa-clock"></i><span><strong data-i18n="hours_lbl">Часы:</strong> <span data-i18n="hours_val">24/7, заселение по договоренности</span></span></li>
           </ul>
@@ -436,7 +436,6 @@
     const DEST_ADDR = 'Veterinarijos g. 25, Šiauliai, Lithuania';
     const DEST_ENC  = encodeURIComponent(DEST_ADDR);
     const IG_USER   = 'skifijahostel';
-    const TG_USER   = 'написать'; // замените на фактический username
     const PHONE_INT = '+37068364467';
 
     // Viber deep link
@@ -451,13 +450,27 @@
     }
     $$('[data-open-viber]').forEach(a=>a.addEventListener('click',openViber));
 
-    // Telegram deep link (приложение -> веб)
+    // Telegram deep link по номеру
     function openTelegram(e){
       e.preventDefault();
-      const appUrl = `tg://resolve?domain=${encodeURIComponent(TG_USER)}`;
-      const webUrl = `https://t.me/${encodeURIComponent(TG_USER)}`;
-      const t=Date.now(); window.location.href=appUrl;
-      setTimeout(()=>{ if(Date.now()-t<1200) window.location.href=webUrl; },1000);
+      const phone = PHONE_INT.replace(/[^\d+]/g, ''); // "+37068364467"
+      const attempts = [
+        `tg://resolve?phone=${encodeURIComponent(phone)}`,
+        `tg://msg?to=${encodeURIComponent(phone)}`
+      ];
+      let i = 0;
+      const start = Date.now();
+      const tryNext = () => {
+        if (i < attempts.length) {
+          window.location.href = attempts[i++];
+          setTimeout(() => {
+            if (Date.now() - start < 1500) tryNext();
+          }, 800);
+        } else {
+          window.location.href = 'https://t.me/';
+        }
+      };
+      tryNext();
     }
     $$('[data-open-telegram]').forEach(a=>a.addEventListener('click',openTelegram));
 
