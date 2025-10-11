@@ -102,8 +102,8 @@
     .to-top{position:fixed;right:16px;bottom:92px;background:#fff;border:3px solid var(--ink);border-radius:999px;padding:10px 12px;box-shadow:var(--shadow);display:none;align-items:center;gap:8px;font-weight:800;z-index:55}
     .to-top.show{display:flex}
 
-    /* Нижняя панель: скрыта на десктопе, включается на мобильных */
-    .mobile-quick{display:none;position:fixed;left:0;right:0;bottom:0;background:linear-gradient(180deg,#fff9f0,#ffe2b8);border-top:3px solid var(--ink);padding:8px env(safe-area-inset-right) calc(8px + env(safe-area-inset-bottom)) env(safe-area-inset-left);z-index:54}
+    /* Нижняя панель: как верхняя, с прокруткой и snap */
+    .mobile-quick{position:fixed;left:0;right:0;bottom:0;background:linear-gradient(180deg,#fff9f0,#ffe2b8);border-top:3px solid var(--ink);padding:8px env(safe-area-inset-right) calc(8px + env(safe-area-inset-bottom)) env(safe-area-inset-left);z-index:54}
     .mobile-quick .track{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;touch-action:pan-x;scroll-snap-type:x proximity;padding-bottom:4px}
     .mobile-quick .track::-webkit-scrollbar{display:none}
     .mobile-quick .track{scrollbar-width:none}
@@ -502,7 +502,6 @@
 
     // i18n. Русский — базовый: не перезаписываем HTML при ru.
     const translations = {
-      // ru — базовый язык: используем текст из HTML, ничего не подменяем
       lt:{
         meta_title:"Skifija — hostelis Šiauliuose: jauku ir ramiai",
         meta_desc:"Skifija (Šiauliai): švaru, ramu, be triukšmo. Parkingas, virtuvė, skalbykla, greitas Wi‑Fi. Malonūs šeimininkai ir sąžiningos kainos.",
