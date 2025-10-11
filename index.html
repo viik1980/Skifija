@@ -102,7 +102,6 @@
     .to-top{position:fixed;right:16px;bottom:92px;background:#fff;border:3px solid var(--ink);border-radius:999px;padding:10px 12px;box-shadow:var(--shadow);display:none;align-items:center;gap:8px;font-weight:800;z-index:55}
     .to-top.show{display:flex}
 
-    /* Нижняя панель: как верхняя, с прокруткой и snap */
     .mobile-quick{position:fixed;left:0;right:0;bottom:0;background:linear-gradient(180deg,#fff9f0,#ffe2b8);border-top:3px solid var(--ink);padding:8px env(safe-area-inset-right) calc(8px + env(safe-area-inset-bottom)) env(safe-area-inset-left);z-index:54}
     .mobile-quick .track{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;touch-action:pan-x;scroll-snap-type:x proximity;padding-bottom:4px}
     .mobile-quick .track::-webkit-scrollbar{display:none}
@@ -141,7 +140,7 @@
   </script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Пропустить к содержанию</a>
+  <a class="skip-link" href="#main" data-i18n="skip">Пропустить к содержанию</a>
 
   <header>
     <div class="container nav" role="navigation" aria-label="Главная навигация">
@@ -154,7 +153,7 @@
         <a href="#why"><i class="fa-solid fa-star"></i> <span data-i18n="nav_why">Почему мы</span></a>
         <a href="#rooms"><i class="fa-solid fa-door-open"></i> <span data-i18n="nav_rooms">Номера и цены</span></a>
         <a href="#rules"><i class="fa-solid fa-moon"></i> <span data-i18n="nav_rules">Правила</span></a>
-        <a href="#faq"><i class="fa-solid fa-circle-question"></i> FAQ</a>
+        <a href="#faq"><i class="fa-solid fa-circle-question"></i> <span data-i18n="nav_faq">FAQ</span></a>
         <a href="#contacts"><i class="fa-solid fa-map-location-dot"></i> <span data-i18n="nav_contacts">Контакты</span></a>
       </nav>
       <div class="lang-switch" aria-label="Language">
@@ -338,12 +337,32 @@
 
     <section id="faq" class="section" aria-labelledby="faq-title">
       <div class="container">
-        <h2 id="faq-title">Частые вопросы</h2>
-        <details class="card reveal" style="padding:14px"><summary><strong>Во сколько заезд/выезд?</strong></summary><p class="muted">В любое удобное время.</p></details>
-        <details class="card reveal" style="padding:14px"><summary><strong>Где оставить машину?</strong></summary><p class="muted">Парковка рядом с хостелом; подскажем место по приезду. Территория просматривается камерами.</p></details>
-        <details class="card reveal" style="padding:14px"><summary><strong>Есть ли постель и полотенца?</strong></summary><p class="muted">Да, они включены в стоимость. Уборка общих зон — ежедневно.</p></details>
-        <details class="card reveal" style="padding:14px"><summary><strong>Можно готовить?</strong></summary><p class="muted">Есть общая кухня: плита, микроволновка, холодильник, чай/кофе.</p></details>
-        <details class="card reveal" style="padding:14px"><summary><strong>Вы используете камеры видео-наблюдение в хостеле?</strong></summary><p class="muted">Да, они есть в общих зонах — они следят не за вами, а за вашим спокойствием. В комнатах камер нет — мы охраняем уют, а не личную жизнь.</p></details>
+        <h2 id="faq-title" data-i18n="faq_h2">Частые вопросы</h2>
+
+        <details class="card reveal" style="padding:14px">
+          <summary><strong data-i18n="faq_q1">Во сколько заезд/выезд?</strong></summary>
+          <p class="muted" data-i18n="faq_a1">В любое удобное время.</p>
+        </details>
+
+        <details class="card reveal" style="padding:14px">
+          <summary><strong data-i18n="faq_q2">Где оставить машину?</strong></summary>
+          <p class="muted" data-i18n="faq_a2">Парковка рядом с хостелом; подскажем место по приезду. Территория просматривается камерами.</p>
+        </details>
+
+        <details class="card reveal" style="padding:14px">
+          <summary><strong data-i18n="faq_q3">Есть ли постель и полотенца?</strong></summary>
+          <p class="muted" data-i18n="faq_a3">Да, они включены в стоимость. Уборка общих зон — ежедневно.</p>
+        </details>
+
+        <details class="card reveal" style="padding:14px">
+          <summary><strong data-i18n="faq_q4">Можно готовить?</strong></summary>
+          <p class="muted" data-i18n="faq_a4">Есть общая кухня: плита, микроволновка, холодильник, чай/кофе.</p>
+        </details>
+
+        <details class="card reveal" style="padding:14px">
+          <summary><strong data-i18n="faq_q5">Вы используете камеры видео-наблюдение в хостеле?</strong></summary>
+          <p class="muted" data-i18n="faq_a5">Да, они есть в общих зонах — они следят не за вами, а за вашим спокойствием. В комнатах камер нет — мы охраняем уют, а не личную жизнь.</p>
+        </details>
       </div>
     </section>
 
@@ -355,9 +374,9 @@
           <ul class="list">
             <li><i class="fa-solid fa-location-dot"></i><span><strong data-i18n="addr_lbl">Адрес:</strong> <span data-i18n="addr_val">Lietuva, Veterinarijos g. 25, Vijoliai, 76310 Šiaulių r. sav.</span></span></li>
             <li><i class="fa-solid fa-phone"></i><span><strong data-i18n="phone_lbl">Телефон:</strong> <a href="tel:+37068364467">+370 683 644 67</a></span></li>
-            <li><i class="fa-brands fa-whatsapp"></i><span><strong>WhatsApp:</strong> <a href="https://wa.me/37068364467" target="_blank" rel="noopener" data-i18n="wa_write">написать</a></span></li>
-            <li><i class="fa-brands fa-viber"></i><span><strong>Viber:</strong> <a href="#" data-open-viber data-i18n="vb_write">написать</a></span></li>
-            <li><i class="fa-brands fa-telegram"></i><span><strong>Telegram:</strong> <a href="#" data-open-telegram>+370 683 644 67</a></span></li>
+            <li><i class="fa-brands fa-whatsapp"></i><span><strong data-i18n="wa_lbl">WhatsApp:</strong> <a href="https://wa.me/37068364467" target="_blank" rel="noopener" data-i18n="wa_write">написать</a></span></li>
+            <li><i class="fa-brands fa-viber"></i><span><strong data-i18n="vb_lbl">Viber:</strong> <a href="#" data-open-viber data-i18n="vb_write">написать</a></span></li>
+            <li><i class="fa-brands fa-telegram"></i><span><strong data-i18n="tg_lbl">Telegram:</strong> <a href="#" data-open-telegram>+370 683 644 67</a></span></li>
             <li><i class="fa-brands fa-instagram"></i><span><strong data-i18n="ig_lbl">Instagram:</strong> <a href="#" data-open-instagram>@skifijahostel</a></span></li>
             <li><i class="fa-solid fa-clock"></i><span><strong data-i18n="hours_lbl">Часы:</strong> <span data-i18n="hours_val">24/7, заселение по договоренности</span></span></li>
           </ul>
@@ -398,7 +417,6 @@
     </div>
   </footer>
 
-  <!-- Нижний app‑bar -->
   <nav class="mobile-quick" role="navigation" aria-label="Быстрые действия">
     <div class="container track">
       <a class="btn" href="#rooms"><i class="fa-solid fa-door-open"></i> <span data-i18n="nav_rooms">Номера и цены</span></a>
@@ -438,7 +456,6 @@
     const IG_USER   = 'skifijahostel';
     const PHONE_INT = '+37068364467';
 
-    // Viber deep link
     function openViber(e){
       e.preventDefault();
       const isiOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
@@ -450,7 +467,6 @@
     }
     $$('[data-open-viber]').forEach(a=>a.addEventListener('click',openViber));
 
-    // Telegram deep link по номеру
     function openTelegram(e){
       e.preventDefault();
       const phone = PHONE_INT.replace(/[^\d+]/g, '');
@@ -474,7 +490,6 @@
     }
     $$('[data-open-telegram]').forEach(a=>a.addEventListener('click',openTelegram));
 
-    // Instagram deep link
     function openInstagram(e){
       e.preventDefault();
       const appUrl = `instagram://user?username=${IG_USER}`;
@@ -484,7 +499,6 @@
     }
     $$('[data-open-instagram]').forEach(a=>a.addEventListener('click',openInstagram));
 
-    // Маршрут: Apple Maps -> Google Maps (app) -> веб
     function openRoute(e){
       e.preventDefault();
       const isiOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
@@ -500,56 +514,217 @@
     }
     $$('[data-open-route]').forEach(a=>a.addEventListener('click',openRoute));
 
-    // i18n. Русский — базовый: не перезаписываем HTML при ru.
-    const translations = {
-      lt:{
-        meta_title:"Skifija — hostelis Šiauliuose: jauku ir ramiai",
-        meta_desc:"Skifija (Šiauliai): švaru, ramu, be triukšmo. Parkingas, virtuvė, skalbykla, greitas Wi‑Fi. Malonūs šeimininkai ir sąžiningos kainos.",
-        nav_why:"Kodėl mes",nav_rooms:"Kambariai ir kainos",nav_rules:"Taisyklės",nav_contacts:"Kontaktai",
-        call:"Skambinti",cta_whatsapp:"WhatsApp — parašyti",cta_viber:"Viber — parašyti",cta_instagram:"Instagram",cta_telegram:"Telegram",cta_route:"Maršrutas",
-        ig_lbl:"Instagram:",map_open:"Atidaryti žemėlapį visu ekranu",to_top:"Į viršų"
-      },
-      en:{
-        meta_title:"Skifija — hostel in Šiauliai: quiet comfort for workers and guests",
-        meta_desc:"Skifija (Šiauliai, Lithuania): quiet, clean, no parties. Parking, kitchen, laundry, fast Wi‑Fi. Caring hosts and fair prices.",
-        nav_why:"Why us",nav_rooms:"Rooms & prices",nav_rules:"Rules",nav_contacts:"Contacts",
-        call:"Call",cta_whatsapp:"WhatsApp — message",cta_viber:"Viber — message",cta_instagram:"Instagram",cta_telegram:"Telegram",cta_route:"Route",
-        ig_lbl:"Instagram:",map_open:"Open full map",to_top:"Top"
-      }
-    };
-    function applyI18n(lang){
-      document.documentElement.lang=lang;
-      const isBase = (lang === 'ru');
-      const dict = translations[lang] || {};
-      if (!isBase){
-        document.querySelectorAll('[data-i18n]').forEach(el=>{
-          const k=el.getAttribute('data-i18n');
-          if(k in dict) el.textContent=dict[k];
-        });
-        document.querySelectorAll('[data-i18n-attr]').forEach(el=>{
-          const [attr,key]=el.getAttribute('data-i18n-attr').split(':');
-          if(key in dict) el.setAttribute(attr,dict[key]);
-        });
-        if('meta_title' in dict) document.title=dict.meta_title;
-      }
-      const select=$('#langSelect'); if(select && select.value!==lang) select.value=lang;
-    }
-    function detectLang(){
-      const saved=localStorage.getItem('lang');
-      if(saved) return saved;
-      const arr=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'en']).map(l=>String(l||'').toLowerCase());
-      if(arr.some(l=>l.startsWith('ru')||l.startsWith('uk')||l.startsWith('be'))) return 'ru';
-      if(arr.some(l=>l.startsWith('lt'))) return 'lt';
-      return 'en';
-    }
-    const initialLang=detectLang(); applyI18n(initialLang);
-    const sel=$('#langSelect'); if(sel){ sel.value=initialLang; sel.addEventListener('change',e=>{localStorage.setItem('lang',e.target.value); applyI18n(e.target.value);}); }
+    // Полноценный i18n (контент + мета)
+    (function(){
+      const translations = {
+        lt:{
+          meta_title:"Skifija — hostelis Šiauliuose: jauku ir ramiai",
+          meta_desc:"Skifija (Šiauliai, Lietuva): ramu, švaru, be triukšmo. Parkavimas, virtuvė, skalbykla, greitas Wi‑Fi. Rūpestingi šeimininkai ir sąžiningos kainos.",
+          skip:"Pereiti prie turinio",
+          nav_why:"Kodėl mes", nav_rooms:"Kambariai ir kainos", nav_rules:"Taisyklės", nav_contacts:"Kontaktai", nav_faq:"DUK",
+          tagline_chip:"Net laikas čia ilsisi.",
+          badge_text:"Šilta, ramu ir jauku — kaip pas tetą, tik be moralų",
+          hero_title:"Skifija — jaukumo sala Šiauliuose tiems, kurie keliauja, bet ilsisi karališkai",
+          hero_lead:"Statybininkai, vairuotojai ir svečiai — kviečiame į ramybės uostą. Čiužiniai — kaip debesys, dušas — kaip perkrovimas, virtuvė — kaip namuose. Ir svarbiausia — be triukšmo.",
+          cta_call:"Skambinti: +370 683 644 67",
+          cta_whatsapp:"WhatsApp — parašyti", cta_viber:"Viber — parašyti", cta_telegram:"Telegram", cta_instagram:"Instagram", cta_route:"Maršrutas",
+          hero_note:"Ankstyvas atvykimas, ilgalaikė nuoma, dokumentai apskaitai.",
+          f1_t:"Lengvųjų automobilių parkavimas", f1_s:"Vietos šalia — prižiūri kameros",
+          f2_t:"Dušas, nuplaunantis kilometrus", f2_s:"5 minutės — ir kelias lyg sapnas",
+          f3_t:"Wi‑Fi greitesnis nei espresso", f3_s:"Žemėlapiai, skambučiai ir serialai — be vargo",
+          f4_t:"Bendra virtuvė", f4_s:"Pašildyti, užsiplikyti, sušilti — lengva",
+          f5_t:"Skalbykla", f5_s:"Nuplauname kelio ir statybų dulkes",
+          f6_t:"Tyla — mūsų religija", f6_s:"Miegokite tvirtai — rytoj vėl į kelią",
+          why_h2:"Kodėl Skifija patinka tiems, kurie dirba",
+          why_p:"Esame apie sąžiningą komfortą be perteklinių žodžių. Sutiksime, patarsime, sutvarkysime dokumentus be vargo.",
+          why_b1_t:"Statybininkams", why_b1_1:"Ankstyvas/vėlyvas atvykimas — susitarsime",
+          why_b1_2:"Yra kur išdžiovinti rūbus ir sudėti įrankius", why_b1_3:"Nuolaidos brigadoms ir ilgam laikui",
+          why_b2_t:"Vairuotojams", why_b2_1:"Parkavimas šalia hostelio lengviesiems",
+          why_b2_2:"Dušas, virtuvė, ramus miegas — kaip namelyje prie ežero", why_b2_3:"Kameros stebi kiemą — jūsų ramybei",
+          why_b3_t:"Švaru, gaivu, kaip namuose", why_b3_1:"Bendros erdvės tvarkomos kasdien",
+          why_b3_2:"Patalynė ir rankšluosčiai įskaičiuoti", why_b3_3:"Arbata, kava ir smulkmenos džiaugsmams",
+          rooms_h2:"Kambariai ir sąžiningos kainos",
+          rooms_p:"Kuo ilgiau gyvenate — tuo geresnė kaina. Brigadoms ir vairuotojams — sąlygos.",
+          room1_t:"3 vietų kambarys — brigados jaukumas",
+          room1_d:"Trys viename kambaryje? Pas mus tai ne kova dėl sofos, o komfortas ir miegas.",
+          room1_p:"nuo 12 € / para už vietą",
+          book:"Užsakyti", write:"Parašyti",
+          room2_t:"4 vietų kambarys — dideli darbai prasideda nuo gero poilsio!",
+          room2_d:"Kiekviena lova — ramybės sala, kartu — jaukumo archipelagas.",
+          room2_p:"nuo 12 € / para už vietą",
+          room3_t:"Nori kambaryje būti vienas?",
+          room3_d:"Atskiras kambarys — brangiau, bet tyla ir tavo ritmas.",
+          room3_p:"nuo 18 € / para",
+          rooms_note:"Kainas tikslinkite pagal datas. Ilgalaikiam gyvenimui — nuolaidos. Dokumentai — pagal užklausą.",
+          rules_h2:"Paprastos taisyklės — pasakiškas miegas",
+          rules_b1_t:"Be triukšmingų kompanijų", rules_b1_p:"Saugojame tylą. 22:00–08:00 — poilsis.",
+          rules_b1_1:"Rūkymas — tik skirtoje vietoje", rules_b1_2:"Svečiai — suderinus su administratoriumi",
+          rules_b2_t:"Rūpestis ir švara", rules_b2_p:"Šeimininkai — kaip geri kaimynai.",
+          rules_b2_1:"Bendros erdvės valomos reguliariai", rules_b2_2:"Patalynė ir rankšluosčiai — įskaičiuoti",
+          rules_b2_3:"Rūpestingas požiūris — abipusis",
+          faq_h2:"Dažniausiai užduodami klausimai",
+          faq_q1:"Kada atvykimas/išvykimas?", faq_a1:"Bet kuriuo jums patogiu metu.",
+          faq_q2:"Kur palikti automobilį?", faq_a2:"Parkavimas šalia hostelio; vietą parodysime atvykus.",
+          faq_q3:"Ar yra patalynė ir rankšluosčiai?", faq_a3:"Taip, įskaičiuota. Bendros erdvės valomos kasdien.",
+          faq_q4:"Ar galima gaminti?", faq_a4:"Bendra virtuvė: viryklė, mikrobangė, šaldytuvas, arbata/kava.",
+          faq_q5:"Ar naudojamos kameros?", faq_a5:"Taip, bendrose erdvėse. Kambariuose — ne.",
+          contact_h2:"Kontaktai ir atvykimas", contact_p:"Skambinkite — greitai atsakysime ir patarsime.",
+          addr_lbl:"Adresas:", addr_val:"Lietuva, Veterinarijos g. 25, Vijoliai, 76310 Šiaulių r. sav.",
+          phone_lbl:"Telefonas:", wa_lbl:"WhatsApp:", vb_lbl:"Viber:", tg_lbl:"Telegram:",
+          wa_write:"parašyti", ig_lbl:"Instagram:", hours_lbl:"Laikas:",
+          hours_val:"24/7, apgyvendinimas pagal susitarimą",
+          call:"Skambinti", map_open:"Atidaryti žemėlapį visu ekranu",
+          avail_t:"Laisvų yra šiandien", avail_p:"Skambinkite — rasime geriausią vietą ir kainą",
+          contact_btn:"Susisiekti", footer_tag:"namai tiems, kurie kelyje",
+          privacy:"Privatumo politika", house_rules:"Gyvenimo taisyklės", to_top:"Į viršų"
+        },
+        en:{
+          meta_title:"Skifija — hostel in Šiauliai: quiet comfort and fair prices",
+          meta_desc:"Skifija (Šiauliai, Lithuania): quiet, clean, no parties. Parking, kitchen, laundry, fast Wi‑Fi. Caring hosts and fair prices.",
+          skip:"Skip to content",
+          nav_why:"Why us", nav_rooms:"Rooms & prices", nav_rules:"Rules", nav_contacts:"Contacts", nav_faq:"FAQ",
+          tagline_chip:"Even time relaxes here.",
+          badge_text:"Warm, quiet, homelike — like at auntie's, but no lectures",
+          hero_title:"Skifija — an island of cozy rest in Šiauliai for those who travel but sleep like kings",
+          hero_lead:"Builders, drivers and guests — welcome to a quiet harbor. Mattresses like clouds, a shower like a reset, a kitchen like home. And most importantly — no noise.",
+          cta_call:"Call: +370 683 644 67",
+          cta_whatsapp:"WhatsApp — message", cta_viber:"Viber — message", cta_telegram:"Telegram", cta_instagram:"Instagram", cta_route:"Route",
+          hero_note:"Early check‑in, long stay, invoices on request.",
+          f1_t:"Parking for cars", f1_s:"Spots nearby — monitored by cameras",
+          f2_t:"A shower that washes off miles", f2_s:"Five minutes — and the road feels like a dream",
+          f3_t:"Wi‑Fi quicker than espresso", f3_s:"Maps, calls and shows — no problem",
+          f4_t:"Shared kitchen", f4_s:"Heat up, brew, warm up — easy",
+          f5_t:"Laundry", f5_s:"We wash off road and site dust",
+          f6_t:"Silence is our religion", f6_s:"Sleep well — tomorrow back on track",
+          why_h2:"Why people who get things done like Skifija",
+          why_p:"Honest comfort without fuss. Hosts greet like an old friend, help with check‑in, tips on food, paperwork without hassle.",
+          why_b1_t:"For builders", why_b1_1:"Early/late check‑in — we’ll arrange",
+          why_b1_2:"A place to dry clothes and store tools", why_b1_3:"Discounts for crews and long stays",
+          why_b2_t:"For drivers", why_b2_1:"Parking near the hostel for cars",
+          why_b2_2:"Shower, kitchen, quiet sleep — like a cabin by the lake", why_b2_3:"Cameras watch the yard — for your peace",
+          why_b3_t:"Clean, fresh, homelike", why_b3_1:"Common areas cleaned daily",
+          why_b3_2:"Fresh linens and towels included", why_b3_3:"Tea, coffee and small joys",
+          rooms_h2:"Rooms and fair prices",
+          rooms_p:"The longer you stay — the better the price. Special terms for crews and drivers.",
+          room1_t:"Triple room — crew comfort",
+          room1_d:"Three in one room? Not a fight for the sofa — a soft alliance of comfort and sleep.",
+          room1_p:"from €12 / night per bed",
+          book:"Book", write:"Message",
+          room2_t:"Quad room — big deeds start with good rest",
+          room2_d:"Each bed is a small island of peace — together they form an archipelago of coziness.",
+          room2_p:"from €12 / night per bed",
+          room3_t:"Want the room to yourself?",
+          room3_d:"Private room — costs more, but it’s your rhythm and silence.",
+          room3_p:"from €18 / night",
+          rooms_note:"Ask for your dates. Long stays — discounts. Documents on request.",
+          rules_h2:"Simple rules — fairy‑tale sleep",
+          rules_b1_t:"No noisy companies", rules_b1_p:"We protect the silence. Quiet hours 22:00–08:00.",
+          rules_b1_1:"Smoking — in a designated area only", rules_b1_2:"Guests — by agreement with admin",
+          rules_b2_t:"Care and cleanliness", rules_b2_p:"Hosts are like good neighbors: attentive and kind.",
+          rules_b2_1:"Common areas cleaned regularly", rules_b2_2:"Bed linens and towels included",
+          rules_b2_3:"Careful attitude — mutual",
+          faq_h2:"Frequently asked questions",
+          faq_q1:"When is check‑in / check‑out?", faq_a1:"Any time convenient for you.",
+          faq_q2:"Where to leave the car?", faq_a2:"Parking next to the hostel; we’ll show a spot at arrival.",
+          faq_q3:"Are linens and towels provided?", faq_a3:"Yes, included. Common areas are cleaned daily.",
+          faq_q4:"Can I cook?", faq_a4:"Shared kitchen: stove, microwave, fridge, tea/coffee.",
+          faq_q5:"Do you use cameras in the hostel?", faq_a5:"Yes, in common areas. No cameras in rooms.",
+          contact_h2:"Contacts and arrival", contact_p:"Call — we’ll respond quickly and advise.",
+          addr_lbl:"Address:", addr_val:"Lithuania, Veterinarijos g. 25, Vijoliai, 76310 Šiaulių r. sav.",
+          phone_lbl:"Phone:", wa_lbl:"WhatsApp:", vb_lbl:"Viber:", tg_lbl:"Telegram:",
+          wa_write:"message", ig_lbl:"Instagram:", hours_lbl:"Hours:",
+          hours_val:"24/7, check‑in by arrangement",
+          call:"Call", map_open:"Open full map",
+          avail_t:"Available today", avail_p:"Call — we’ll find the best place and price",
+          contact_btn:"Contact us", footer_tag:"a home for people on the road",
+          privacy:"Privacy policy", house_rules:"House rules", to_top:"Top"
+        }
+      };
 
-    // Параллакс фона
-    const hero=document.querySelector('.hero');
-    if(hero){
-      hero.addEventListener('mousemove',(e)=>{const r=hero.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;hero.style.backgroundPosition=`${50+x*2}% ${50+y*2}%`;});
-    }
+      const originals = {
+        title: document.title,
+        meta: {
+          desc: (document.querySelector('meta[name="description"]') || {}).getAttribute?.('content') || '',
+          ogTitle: (document.querySelector('meta[property="og:title"]') || {}).getAttribute?.('content') || '',
+          ogDesc: (document.querySelector('meta[property="og:description"]') || {}).getAttribute?.('content') || ''
+        },
+        nodes: new WeakMap()
+      };
+
+      function snapshotNode(el){
+        if(originals.nodes.has(el)) return;
+        const item = { text: el.textContent, attrs:{} };
+        const spec = el.getAttribute('data-i18n-attr');
+        if(spec){
+          spec.split(';').map(s=>s.trim()).filter(Boolean).forEach(pair=>{
+            const [attr] = pair.split(':').map(s=>s.trim());
+            if(attr) item.attrs[attr] = el.getAttribute(attr) || '';
+          });
+        }
+        originals.nodes.set(el, item);
+      }
+
+      function setMeta(dict){
+        document.title = dict.meta_title || originals.title;
+        const mDesc = document.querySelector('meta[name="description"]');
+        if(mDesc) mDesc.setAttribute('content', dict.meta_desc || originals.meta.desc);
+        const ogT = document.querySelector('meta[property="og:title"]');
+        if(ogT) ogT.setAttribute('content', dict.meta_title || originals.meta.ogTitle || originals.title);
+        const ogD = document.querySelector('meta[property="og:description"]');
+        if(ogD) ogD.setAttribute('content', dict.meta_desc || originals.meta.ogDesc || originals.meta.desc);
+      }
+
+      function applyI18n(lang){
+        document.documentElement.lang = lang;
+        document.querySelectorAll('[data-i18n], [data-i18n-attr]').forEach(snapshotNode);
+
+        const dict = translations[lang] || {};
+        const isRU = (lang === 'ru');
+
+        document.querySelectorAll('[data-i18n]').forEach(el=>{
+          const key  = el.getAttribute('data-i18n');
+          const orig = originals.nodes.get(el);
+          el.textContent = isRU ? orig.text : (key in dict ? dict[key] : orig.text);
+        });
+
+        document.querySelectorAll('[data-i18n-attr]').forEach(el=>{
+          const spec = el.getAttribute('data-i18n-attr');
+          const orig = originals.nodes.get(el);
+          spec.split(';').map(s=>s.trim()).filter(Boolean).forEach(pair=>{
+            const [attr, key] = pair.split(':').map(s=>s.trim());
+            if(!attr || !key) return;
+            const val = isRU ? (orig.attrs[attr] || '') : (key in dict ? dict[key] : (orig.attrs[attr] || ''));
+            el.setAttribute(attr, val);
+          });
+        });
+
+        setMeta(isRU ? {} : dict);
+
+        const sel = document.getElementById('langSelect');
+        if(sel && sel.value !== lang) sel.value = lang;
+        try{ localStorage.setItem('lang', lang); }catch(e){}
+      }
+
+      function detectLang(){
+        try{
+          const saved = localStorage.getItem('lang');
+          if(saved) return saved;
+        }catch(e){}
+        const arr = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en'])
+          .map(l => String(l||'').toLowerCase());
+        if(arr.some(l=>l.startsWith('ru')||l.startsWith('uk')||l.startsWith('be'))) return 'ru';
+        if(arr.some(l=>l.startsWith('lt'))) return 'lt';
+        return 'en';
+      }
+
+      const initial = detectLang();
+      applyI18n(initial);
+      const sel = document.getElementById('langSelect');
+      if(sel){
+        sel.value = initial;
+        sel.addEventListener('change', e=> applyI18n(e.target.value));
+      }
+    })();
   </script>
 </body>
 </html>
